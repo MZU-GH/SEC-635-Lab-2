@@ -1,0 +1,295 @@
+{
+  "categories": [
+    "section/figure/table/appendix refs",
+    "years and dates",
+    "versions and model names",
+    "citations",
+    "course and lab identifiers",
+    "layout",
+    "OWASP IDs",
+    "CVE and ATT&CK IDs",
+    "attack labels",
+    "hyperparameter settings",
+    "file and artifact names",
+    "definitions"
+  ],
+  "entries": [
+    {
+      "id": "layout-documentclass",
+      "category": "layout",
+      "regex": "\\\\documentclass\\[[^\\]]*\\]",
+      "reason": "font size / paper size option of the document class"
+    },
+    {
+      "id": "layout-colwidth",
+      "category": "layout",
+      "regex": "p\\{[\\d.]+\\\\textwidth\\}",
+      "reason": "tabular column width as a fraction of the text width"
+    },
+    {
+      "id": "layout-graphicwidth",
+      "category": "layout",
+      "regex": "width=[\\d.]+\\\\textwidth",
+      "reason": "figure width as a fraction of the text width"
+    },
+    {
+      "id": "layout-hskip",
+      "category": "layout",
+      "regex": "\\\\hskip \\d+pt",
+      "reason": "horizontal gap between table column groups"
+    },
+    {
+      "id": "layout-multicolumn",
+      "category": "layout",
+      "regex": "\\\\multicolumn\\{\\d+\\}",
+      "reason": "number of columns a cell spans"
+    },
+    {
+      "id": "layout-cmidrule",
+      "category": "layout",
+      "regex": "\\\\cmidrule(?:\\([lr]\\))?\\{[\\d-]+\\}",
+      "reason": "column range of a table rule"
+    },
+    {
+      "id": "layout-addlinespace",
+      "category": "layout",
+      "regex": "\\\\addlinespace\\[\\d+pt\\]",
+      "reason": "table row spacing"
+    },
+    {
+      "id": "layout-description",
+      "category": "layout",
+      "regex": "\\\\begin\\{description\\}\\[[^\\]]*\\]",
+      "reason": "description-list spacing options"
+    },
+    {
+      "id": "ref-section",
+      "category": "section/figure/table/appendix refs",
+      "regex": "\\\\S\\d+(?:\\.\\d+)?",
+      "reason": "section reference \\S4, \\S2.3, \\S5"
+    },
+    {
+      "id": "ref-chapter",
+      "category": "section/figure/table/appendix refs",
+      "regex": "Chapters?~\\d+(?:\\s+and~\\d+)?",
+      "reason": "course chapter reference"
+    },
+    {
+      "id": "ref-section-heading-1x",
+      "category": "section/figure/table/appendix refs",
+      "regex": "\\\\subsection\\{[12][ABC] ---",
+      "reason": "subsection heading carrying the task label"
+    },
+    {
+      "id": "ref-section-heading-task",
+      "category": "section/figure/table/appendix refs",
+      "regex": "\\\\section\\{Task [12]:",
+      "reason": "section heading carrying the task number"
+    },
+    {
+      "id": "course-sec635",
+      "category": "course and lab identifiers",
+      "regex": "SEC-635",
+      "reason": "course code"
+    },
+    {
+      "id": "course-lab-n",
+      "category": "course and lab identifiers",
+      "regex": "Lab(?:~|\\s)[12]\\b",
+      "reason": "lab number"
+    },
+    {
+      "id": "course-task-label",
+      "category": "course and lab identifiers",
+      "regex": "\\b[12][ABC]\\b(?!\\d)",
+      "reason": "task label 1A/1B/1C/2A/2B/2C of the brief"
+    },
+    {
+      "id": "label-finding",
+      "category": "attack labels",
+      "regex": "\\bF[1-8]\\b(?:--F[1-8])?",
+      "reason": "finding label F1..F8"
+    },
+    {
+      "id": "label-attack",
+      "category": "attack labels",
+      "regex": "\\bA[1-9]\\b(?:--A[1-9]|/A[1-9])?",
+      "reason": "attack label A1..A9"
+    },
+    {
+      "id": "label-question",
+      "category": "attack labels",
+      "regex": "\\bQ[1-5]\\b(?!\\\\_)",
+      "reason": "normal-question label Q1..Q5"
+    },
+    {
+      "id": "owasp-llm-id",
+      "category": "OWASP IDs",
+      "regex": "LLM\\d{2}(?::2025)?",
+      "reason": "OWASP LLM Top 10 identifier"
+    },
+    {
+      "id": "owasp-llm-top10",
+      "category": "OWASP IDs",
+      "regex": "OWASP LLM Top 10(?: \\(2025\\)| 2025)",
+      "reason": "OWASP list name and edition"
+    },
+    {
+      "id": "cve-id",
+      "category": "CVE and ATT&CK IDs",
+      "regex": "(?:kev-)?CVE-\\d{4}-\\d{4,5}",
+      "reason": "CVE identifier"
+    },
+    {
+      "id": "attack-technique-id",
+      "category": "CVE and ATT&CK IDs",
+      "regex": "(?:attack-)?\\bT\\d{4}\\b",
+      "reason": "ATT&CK technique identifier (planted ids T9997-T9999 are unused real ids)"
+    },
+    {
+      "id": "ver-llama31",
+      "category": "versions and model names",
+      "regex": "Llama-3\\.1-8B(?:-Instruct)?|llama3\\.1:8b",
+      "reason": "model name"
+    },
+    {
+      "id": "ver-guard",
+      "category": "versions and model names",
+      "regex": "Llama(?:-|~|\\s)Guard(?:-|~|\\s)3(?:-|~|\\s)1B|llama-guard3:1b",
+      "reason": "model name"
+    },
+    {
+      "id": "ver-quant",
+      "category": "versions and model names",
+      "regex": "Q4\\\\_K\\\\_M",
+      "reason": "quantisation name"
+    },
+    {
+      "id": "ver-minilm",
+      "category": "versions and model names",
+      "regex": "all-MiniLM-L6-v2",
+      "reason": "embedding model name"
+    },
+    {
+      "id": "ver-pgd40",
+      "category": "versions and model names",
+      "regex": "PGD-40",
+      "reason": "attack name (40-step PGD)",
+      "verify": {
+        "type": "grep",
+        "file": "detector/evasion.py",
+        "pattern": "steps: int = 40"
+      }
+    },
+    {
+      "id": "file-name",
+      "category": "file and artifact names",
+      "regex": "(?:[A-Za-z0-9\\\\_*/]|\\\\allowbreak\\{\\})+\\.(?:json|py|md|tex|png)\\b",
+      "reason": "file named in the text; its existence is verified by number_coverage",
+      "verify": {
+        "type": "file_exists"
+      }
+    },
+    {
+      "id": "ver-base64",
+      "category": "versions and model names",
+      "regex": "[Bb]ase64",
+      "reason": "name of the encoding (the attack smuggles an instruction in base64)"
+    },
+    {
+      "id": "ref-cause-label",
+      "category": "section/figure/table/appendix refs",
+      "regex": "Cause(?:~|\\s)[12]\\b",
+      "reason": "label of the first/second cause of the regression, as the report names them"
+    },
+    {
+      "id": "conf-level-upper-bound",
+      "category": "hyperparameter settings",
+      "regex": "95\\\\% upper bound",
+      "reason": "confidence level of the one-sided Clopper-Pearson bound; the bound itself is gated against task2_zero_rate_bounds.json (one_sided_95_upper) in risk_rule_checks"
+    },
+    {
+      "id": "course-team-ids",
+      "category": "course and lab identifiers",
+      "regex": "\\bM800094(?:05|10)\\b|\\bM80009548\\b",
+      "reason": "team student IDs in the title block (gated exactly-once by title_block())"
+    },
+    {
+      "id": "course-repo-url",
+      "category": "course and lab identifiers",
+      "regex": "https://github\\.com/MZU-GH/SEC-635-Lab-2",
+      "reason": "public repository URL (gated by title_block())"
+    },
+    {
+      "id": "course-term",
+      "category": "years and dates",
+      "regex": "Fall 2026",
+      "reason": "term in the title block"
+    },
+    {
+      "id": "layout-linewidth-fraction",
+      "category": "layout",
+      "regex": "\\{[\\d.]+\\\\linewidth\\}",
+      "reason": "minipage width as a fraction of the line width"
+    },
+    {
+      "id": "layout-vspace",
+      "category": "layout",
+      "regex": "\\\\vspace\\{\\d+pt\\}",
+      "reason": "vertical gap in points"
+    },
+    {
+      "id": "layout-itemsep",
+      "category": "layout",
+      "regex": "\\\\setlength\\\\itemsep\\{\\d+pt\\}",
+      "reason": "list item spacing in points"
+    },
+    {
+      "id": "def-sigmoid-range",
+      "category": "hyperparameter settings",
+      "regex": "a 0--1 attack score",
+      "reason": "definition: the sigmoid maps the raw margin to the interval 0 to 1 (not a measurement); the model's last layer is a sigmoid",
+      "verify": {
+        "type": "grep",
+        "file": "detector/torch_model.py",
+        "pattern": "torch\\.sigmoid"
+      }
+    },
+    {
+      "id": "label-soc-tier",
+      "category": "attack labels",
+      "regex": "\\bL[12]\\b(?:/L[12]\\b)?",
+      "reason": "SOC analyst tier label L1/L2 (first-line/senior), defined in the key-terms box"
+    },
+    {
+      "id": "owasp-llm-top10-for-llms",
+      "category": "OWASP IDs",
+      "regex": "OWASP Top 10 for LLMs \\(2025\\)",
+      "reason": "OWASP list name and edition (the 10 is the list's name, the 2025 its edition), as in 'OWASP LLM Top 10 (2025)'"
+    },
+    {
+      "id": "def-top1-source",
+      "category": "hyperparameter settings",
+      "regex": "unvetted top-1 source",
+      "reason": "top-1 = the single highest-ranked retrieved document (the rank-one hit); a definition of the alert trigger, not a measurement"
+    },
+    {
+      "id": "layout-fontsize",
+      "category": "layout",
+      "regex": "\\\\fontsize\\{[\\d.]+\\}\\{[\\d.]+\\}",
+      "reason": "font size and line spacing in points of the evidence table"
+    },
+    {
+      "id": "layout-tabcolsep",
+      "category": "layout",
+      "regex": "\\\\tabcolsep\\}\\{\\d+pt\\}",
+      "reason": "table column padding in points"
+    },
+    {
+      "id": "definition-12-hour-clock",
+      "category": "definitions",
+      "regex": "uses a 12-hour clock without AM/PM",
+      "reason": "definition of the data's timestamp format (12-hour clock, no AM/PM), not a measurement; the afternoon-start claim it explains is checked against results/split_audit.json"
+    }
+  ]
+}

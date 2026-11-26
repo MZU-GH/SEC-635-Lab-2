@@ -1,0 +1,14 @@
+{
+  "source_files": [
+    "results/task1_attacker_budget.json",
+    "results/task2_summary.json"
+  ],
+  "fd_fgsm_queries_per_flow_min": 104.0,
+  "random_search_queries_per_flow_min": 163.91333333333333,
+  "random_search_queries_per_flow_max": 201.0,
+  "cheapest_attack_queries_per_flow": 104.0,
+  "alert_fraction": 0.5,
+  "alert_rule": "alert_threshold = floor(alert_fraction * cheapest_attack_queries_per_flow)",
+  "alert_threshold_near_identical_vectors": 52,
+  "guard_baseline_unspecified_or_errored_records": 0
+}

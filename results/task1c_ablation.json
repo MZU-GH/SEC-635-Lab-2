@@ -1,0 +1,400 @@
+{
+  "day": "Wednesday",
+  "seed": 42,
+  "n_eval_flows": 300,
+  "eps_units": "standardized by the ORIGINAL Lab 1 scaler",
+  "attacks": [
+    "fd_fgsm",
+    "pgd"
+  ],
+  "degenerate_features": [
+    "Bwd PSH Flags",
+    "Fwd URG Flags",
+    "Bwd URG Flags",
+    "CWE Flag Count",
+    "Fwd Byts/b Avg",
+    "Fwd Pkts/b Avg",
+    "Fwd Blk Rate Avg",
+    "Bwd Byts/b Avg",
+    "Bwd Pkts/b Avg",
+    "Bwd Blk Rate Avg"
+  ],
+  "configs": [
+    {
+      "config": "full_2r",
+      "n_rows": null,
+      "rounds": 2,
+      "n_frozen_features": 0,
+      "adversarial_training": {
+        "loaded_from_cache": "models/task1c_defended.joblib"
+      },
+      "clean_accuracy": 0.9999936188677319,
+      "curve_after": [
+        {
+          "eps_std": 0.05,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.9966666666666667,
+              "evasion_rate": 0.0033333333333333335
+            },
+            "pgd": {
+              "detection_rate": 0.9966666666666667,
+              "evasion_rate": 0.0033333333333333335
+            }
+          }
+        },
+        {
+          "eps_std": 0.1,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.8733333333333333,
+              "evasion_rate": 0.12666666666666668
+            },
+            "pgd": {
+              "detection_rate": 0.8633333333333333,
+              "evasion_rate": 0.13666666666666666
+            }
+          }
+        },
+        {
+          "eps_std": 0.15,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.35,
+              "evasion_rate": 0.65
+            }
+          }
+        },
+        {
+          "eps_std": 0.25,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        },
+        {
+          "eps_std": 0.5,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        }
+      ],
+      "seconds": 403.0
+    },
+    {
+      "config": "full_1r",
+      "n_rows": null,
+      "rounds": 1,
+      "n_frozen_features": 0,
+      "adversarial_training": {
+        "eps_std": 0.25,
+        "steps": 40,
+        "rounds": 1,
+        "history": [
+          {
+            "round": 0,
+            "eps_std": 0.25,
+            "steps": 40,
+            "n_clean": 731322,
+            "n_adversarial": 731322,
+            "train_rows_used": 1462644,
+            "seconds": 301.4
+          }
+        ]
+      },
+      "clean_accuracy": 0.9999840471693298,
+      "curve_after": [
+        {
+          "eps_std": 0.05,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 1.0,
+              "evasion_rate": 0.0
+            },
+            "pgd": {
+              "detection_rate": 1.0,
+              "evasion_rate": 0.0
+            }
+          }
+        },
+        {
+          "eps_std": 0.1,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.9833333333333333,
+              "evasion_rate": 0.016666666666666666
+            },
+            "pgd": {
+              "detection_rate": 0.9966666666666667,
+              "evasion_rate": 0.0033333333333333335
+            }
+          }
+        },
+        {
+          "eps_std": 0.15,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.9,
+              "evasion_rate": 0.1
+            },
+            "pgd": {
+              "detection_rate": 0.91,
+              "evasion_rate": 0.09
+            }
+          }
+        },
+        {
+          "eps_std": 0.25,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.7766666666666666,
+              "evasion_rate": 0.22333333333333333
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        },
+        {
+          "eps_std": 0.5,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.35,
+              "evasion_rate": 0.65
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        }
+      ],
+      "seconds": 685.9
+    },
+    {
+      "config": "sub100k_2r",
+      "n_rows": 100000,
+      "rounds": 2,
+      "n_frozen_features": 0,
+      "adversarial_training": {
+        "eps_std": 0.25,
+        "steps": 40,
+        "rounds": 2,
+        "history": [
+          {
+            "round": 0,
+            "eps_std": 0.25,
+            "steps": 40,
+            "n_clean": 100000,
+            "n_adversarial": 100000,
+            "train_rows_used": 200000,
+            "seconds": 22.0
+          },
+          {
+            "round": 1,
+            "eps_std": 0.25,
+            "steps": 40,
+            "n_clean": 100000,
+            "n_adversarial": 100000,
+            "train_rows_used": 200000,
+            "seconds": 24.6
+          }
+        ]
+      },
+      "clean_accuracy": 0.9999617132063914,
+      "curve_after": [
+        {
+          "eps_std": 0.05,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.9733333333333334,
+              "evasion_rate": 0.02666666666666667
+            },
+            "pgd": {
+              "detection_rate": 0.9733333333333334,
+              "evasion_rate": 0.02666666666666667
+            }
+          }
+        },
+        {
+          "eps_std": 0.1,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.8966666666666667,
+              "evasion_rate": 0.10333333333333333
+            },
+            "pgd": {
+              "detection_rate": 0.8966666666666667,
+              "evasion_rate": 0.10333333333333333
+            }
+          }
+        },
+        {
+          "eps_std": 0.15,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.8633333333333333,
+              "evasion_rate": 0.13666666666666666
+            },
+            "pgd": {
+              "detection_rate": 0.8633333333333333,
+              "evasion_rate": 0.13666666666666666
+            }
+          }
+        },
+        {
+          "eps_std": 0.25,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.7766666666666666,
+              "evasion_rate": 0.22333333333333333
+            },
+            "pgd": {
+              "detection_rate": 0.7766666666666666,
+              "evasion_rate": 0.22333333333333333
+            }
+          }
+        },
+        {
+          "eps_std": 0.5,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        }
+      ],
+      "seconds": 439.8
+    },
+    {
+      "config": "full_2r_frozen",
+      "n_rows": null,
+      "rounds": 2,
+      "n_frozen_features": 10,
+      "adversarial_training": {
+        "eps_std": 0.25,
+        "steps": 40,
+        "rounds": 2,
+        "history": [
+          {
+            "round": 0,
+            "eps_std": 0.25,
+            "steps": 40,
+            "n_clean": 731322,
+            "n_adversarial": 731322,
+            "train_rows_used": 1462644,
+            "seconds": 345.3
+          },
+          {
+            "round": 1,
+            "eps_std": 0.25,
+            "steps": 40,
+            "n_clean": 731322,
+            "n_adversarial": 731322,
+            "train_rows_used": 1462644,
+            "seconds": 312.8
+          }
+        ]
+      },
+      "clean_accuracy": 0.9999968094338659,
+      "curve_after": [
+        {
+          "eps_std": 0.05,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 1.0,
+              "evasion_rate": 0.0
+            },
+            "pgd": {
+              "detection_rate": 1.0,
+              "evasion_rate": 0.0
+            }
+          }
+        },
+        {
+          "eps_std": 0.1,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.9733333333333334,
+              "evasion_rate": 0.02666666666666667
+            },
+            "pgd": {
+              "detection_rate": 0.9733333333333334,
+              "evasion_rate": 0.02666666666666667
+            }
+          }
+        },
+        {
+          "eps_std": 0.15,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.87,
+              "evasion_rate": 0.13
+            },
+            "pgd": {
+              "detection_rate": 0.88,
+              "evasion_rate": 0.12
+            }
+          }
+        },
+        {
+          "eps_std": 0.25,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.35,
+              "evasion_rate": 0.65
+            }
+          }
+        },
+        {
+          "eps_std": 0.5,
+          "attacks": {
+            "fd_fgsm": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            },
+            "pgd": {
+              "detection_rate": 0.0,
+              "evasion_rate": 1.0
+            }
+          }
+        }
+      ],
+      "seconds": 1013.9
+    }
+  ],
+  "eval_set_provenance": {
+    "n": 300,
+    "selector": "evaluation_flows(split, ORIGINAL Lab1 model, n=300, seed=42)",
+    "filter": "P(attack) > 0.9 under the original model",
+    "sha256_of_flow_matrix": "bfe8185175b21e80",
+    "note": "identical set used by defend.py (Task 1C) and ablate_1c.py; verified byte-equal"
+  }
+}

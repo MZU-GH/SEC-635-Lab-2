@@ -1,0 +1,130 @@
+{
+  "what": "Lab 2's attacked split versus the submitted Lab 1's clock-repaired split",
+  "wednesday": {
+    "rows_train": 731322,
+    "rows_test": 313424,
+    "n_features": 77,
+    "rows_sorted_by_raw_timestamp": true,
+    "test_true_clock": [
+      "2018-02-14 11:03:37",
+      "2018-02-14 12:59:59"
+    ],
+    "train_true_clock": [
+      "2018-02-14 08:28:20",
+      "2018-02-14 17:30:48"
+    ],
+    "train_rows_after_test_window": 377414,
+    "train_after_window_true_clock": [
+      "2018-02-14 13:00:00",
+      "2018-02-14 17:30:48"
+    ],
+    "train_labels": {
+      "Benign": 483600,
+      "SSH-Bruteforce": 187589,
+      "FTP-BruteForce": 60133
+    },
+    "test_labels": {
+      "Benign": 180203,
+      "FTP-BruteForce": 133221
+    },
+    "constant_in_train": [
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "CWE Flag Count",
+      "Fwd Byts/b Avg",
+      "Fwd Pkts/b Avg",
+      "Fwd Blk Rate Avg",
+      "Bwd Byts/b Avg",
+      "Bwd Pkts/b Avg",
+      "Bwd Blk Rate Avg"
+    ]
+  },
+  "thursday": {
+    "rows_train": 229726,
+    "rows_test": 98455,
+    "n_features": 77,
+    "rows_sorted_by_raw_timestamp": true,
+    "test_true_clock": [
+      "2018-03-01 10:05:51",
+      "2018-03-01 12:59:59"
+    ],
+    "train_true_clock": [
+      "2018-03-01 08:16:28",
+      "2018-03-01 17:45:28"
+    ],
+    "train_rows_after_test_window": 163781,
+    "train_after_window_true_clock": [
+      "2018-03-01 13:00:00",
+      "2018-03-01 17:45:28"
+    ],
+    "train_labels": {
+      "Benign": 172661,
+      "Infilteration": 57065
+    },
+    "test_labels": {
+      "Benign": 63117,
+      "Infilteration": 35338
+    },
+    "constant_in_train": [
+      "Bwd PSH Flags",
+      "Bwd URG Flags",
+      "Fwd Byts/b Avg",
+      "Fwd Pkts/b Avg",
+      "Fwd Blk Rate Avg",
+      "Bwd Byts/b Avg",
+      "Bwd Pkts/b Avg",
+      "Bwd Blk Rate Avg"
+    ]
+  },
+  "lab1_submitted": {
+    "source": "github.com/MZU-GH/SEC-635-Lab-1 commit 72e026b",
+    "source_sha256": {
+      "results/task1_results.json": "9d48f800501ba41bb2023111fc62c459074661d214658c7173399577aefc4be9",
+      "results/prep_wed.json": "44dce6cb1ea5681e1b386663b12721ba7f6901aba541a425e8a3bc8c8b57eaa1"
+    },
+    "wed_n_features": 67,
+    "wed_constant_columns_dropped": [
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "CWE Flag Count",
+      "Fwd Byts/b Avg",
+      "Fwd Pkts/b Avg",
+      "Fwd Blk Rate Avg",
+      "Bwd Byts/b Avg",
+      "Bwd Pkts/b Avg",
+      "Bwd Blk Rate Avg"
+    ],
+    "wed_flows_moved_by_clock_fix": 377414,
+    "wed70_cut_time": "2018-02-14 13:59:19",
+    "wed70_train_labels": {
+      "Benign": 537968,
+      "FTP-BruteForce": 193354
+    },
+    "wed70_test_labels": {
+      "SSH-Bruteforce": 187589,
+      "Benign": 125835
+    },
+    "wed70_mlp_hidden": [
+      128,
+      64
+    ],
+    "wed70_mlp_tp": 30,
+    "wed70_mlp_recall": 0.00015992408936558113,
+    "wed70_mlp_f1": 0.0003197765827608444,
+    "unrepaired_clock_demo_test_labels": {
+      "Benign": 180203,
+      "FTP-BruteForce": 133221
+    },
+    "unrepaired_clock_demo_train_labels": {
+      "Benign": 483600,
+      "SSH-Bruteforce": 187589,
+      "FTP-BruteForce": 60133
+    }
+  },
+  "checks": {
+    "our_split_equals_lab1_unrepaired_demo": true,
+    "our_constant_set_equals_lab1_dropped": true
+  }
+}

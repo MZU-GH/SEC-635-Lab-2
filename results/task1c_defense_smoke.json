@@ -1,0 +1,173 @@
+{
+  "day": "Wednesday",
+  "seed": 42,
+  "n_eval_flows": 200,
+  "adversarial_training": {
+    "eps_std": 0.1,
+    "steps": 40,
+    "rounds": 2,
+    "history": [
+      {
+        "round": 0,
+        "eps_std": 0.1,
+        "steps": 40,
+        "n_clean": 40000,
+        "n_adversarial": 40000,
+        "train_rows_used": 80000,
+        "seconds": 25.3
+      },
+      {
+        "round": 1,
+        "eps_std": 0.1,
+        "steps": 40,
+        "n_clean": 40000,
+        "n_adversarial": 40000,
+        "train_rows_used": 80000,
+        "seconds": 9.8
+      }
+    ]
+  },
+  "clean_accuracy": {
+    "before": 0.9999968094338659,
+    "after": 0.9999680943386594
+  },
+  "curve_after": [
+    {
+      "eps_std": 0.0,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.01,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.025,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.05,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.1,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.915,
+          "evasion_rate": 0.085
+        },
+        "pgd": {
+          "detection_rate": 0.925,
+          "evasion_rate": 0.075
+        }
+      }
+    },
+    {
+      "eps_std": 0.15,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.995,
+          "evasion_rate": 0.005
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.9,
+          "evasion_rate": 0.1
+        },
+        "pgd": {
+          "detection_rate": 0.9,
+          "evasion_rate": 0.1
+        }
+      }
+    },
+    {
+      "eps_std": 0.25,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.94,
+          "evasion_rate": 0.06
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.885,
+          "evasion_rate": 0.115
+        },
+        "pgd": {
+          "detection_rate": 0.875,
+          "evasion_rate": 0.125
+        }
+      }
+    },
+    {
+      "eps_std": 0.5,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.89,
+          "evasion_rate": 0.11
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.8049999999999999,
+          "evasion_rate": 0.195
+        },
+        "pgd": {
+          "detection_rate": 0.32999999999999996,
+          "evasion_rate": 0.67
+        }
+      }
+    }
+  ],
+  "smoothing": null
+}

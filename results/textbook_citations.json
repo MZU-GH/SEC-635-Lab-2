@@ -1,0 +1,32 @@
+{
+ "source": "course textbook, chapter 9 (chapters/course9.txt, not published)",
+ "source_sha256": "2323934c4edca6ed0e6797c87215bf5971d76efba5e74fe0fdfee80cf3a28da2",
+ "sentences": {
+  "s1": "Step size α How far each PGD step moves every feature; here α = 0.03 against a budget ε = 0.10.",
+  "s2": "A formula turns this share and the size of the noise, σ = 0.25, into a radius: R = 0.25 × 2.463 = 0.616 (Cohen et al., 2019).",
+  "s3": "Randomized smoothing: a proven L2 radius of 0.616 at σ = 0.25 and n = 1,000, capped by n."
+ },
+ "checks": [
+  {
+   "id": "attack_budget",
+   "what": "the textbook's worked PGD attack budget (report 1C: 'not the textbook's 0.10')",
+   "fragment": "budget ε = 0.10",
+   "value": "0.10",
+   "sentence": "s1"
+  },
+  {
+   "id": "smoothing_radius_formula",
+   "what": "textbook certified radius, worked example (sigma 0.25, 1,000 unanimous copies)",
+   "fragment": "R = 0.25 × 2.463 = 0.616",
+   "value": "0.616",
+   "sentence": "s2"
+  },
+  {
+   "id": "smoothing_radius_summary",
+   "what": "textbook summary of the same radius, with sigma and n",
+   "fragment": "proven L2 radius of 0.616 at σ = 0.25 and n = 1,000",
+   "value": "0.616",
+   "sentence": "s3"
+  }
+ ]
+}

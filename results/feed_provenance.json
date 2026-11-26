@@ -1,0 +1,20 @@
+{
+  "source": "team working notes (not published)",
+  "lines": [
+    {
+      "feed": "attack",
+      "fetch_date": "2026-11-24",
+      "text": "- `data/attack/enterprise-attack.json` — MITRE ATT&CK STIX bundle, fetched 2026-11-24,"
+    },
+    {
+      "feed": "kev",
+      "fetch_date": "2026-11-24",
+      "text": "- `data/kev/known_exploited_vulnerabilities.json` — CISA KEV, fetched 2026-11-24 via"
+    },
+    {
+      "feed": "attack",
+      "fetch_date": "2026-11-24",
+      "text": "`data/attack/enterprise-attack.json` (bundle as fetched 2026-11-24) has 867"
+    }
+  ]
+}

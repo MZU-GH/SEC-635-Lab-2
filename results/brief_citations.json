@@ -1,0 +1,27 @@
+{
+ "source": "assignment brief (.docx, not published)",
+ "docx_sha256": "f5e6520bd254c9510eeba78a185d818343c49f460eb258287d19aa40755d09c0",
+ "sentences": {
+  "s1": "The security chatbot : the RAG copilot of Chapter 4, Activity 4.4, with a larger knowledge base: the 697 ATT&CK techniques from https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json (46 MB) plus the CISA Known Exploited Vulnerabilities list, https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json (1,700 entries)."
+ },
+ "checks": [
+  {
+   "id": "attack_techniques",
+   "what": "ATT&CK technique count",
+   "fragment": "697 ATT&CK techniques",
+   "sentence": "s1"
+  },
+  {
+   "id": "kev_entries",
+   "what": "CISA KEV entry count",
+   "fragment": "(1,700 entries)",
+   "sentence": "s1"
+  },
+  {
+   "id": "activity_number",
+   "what": "course activity the brief names",
+   "fragment": "Activity 4.4",
+   "sentence": "s1"
+  }
+ ]
+}

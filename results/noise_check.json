@@ -1,0 +1,44 @@
+{
+ "eps_std": 0.15,
+ "attack": "fd_fgsm",
+ "n_flows": 300,
+ "A_undefended": {
+  "detected": 269,
+  "rate": 0.8966666666666666,
+  "wilson95": [
+   0.8570598275670679,
+   0.9262434152614588
+  ],
+  "clopper_pearson95": [
+   0.8565394785125855,
+   0.928703553971467
+  ]
+ },
+ "B_recommended_defense_1r_frozen": {
+  "detected": 261,
+  "rate": 0.87,
+  "wilson95": [
+   0.8272195707065882,
+   0.9034246305872476
+  ],
+  "clopper_pearson95": [
+   0.8265951605527668,
+   0.9058988093684294
+  ]
+ },
+ "count_difference_A_minus_B": 8,
+ "rate_difference_A_minus_B": 0.02666666666666667,
+ "one_flow_equals": 0.0033333333333333335,
+ "mcnemar_exact": {
+  "A_only_detected": 8,
+  "B_only_detected": 0,
+  "both_detected": 261,
+  "neither_detected": 31,
+  "p_value_two_sided": 0.0078125,
+  "significant_at_0.05": true
+ },
+ "code": {
+  "script": "scripts/noise_check.py",
+  "date": "2026-11-25"
+ }
+}

@@ -1,0 +1,80 @@
+{
+  "eps_grid_of_1B": [
+    0.0,
+    0.01,
+    0.025,
+    0.05,
+    0.1,
+    0.15,
+    0.25,
+    0.5
+  ],
+  "eps_0.10_in_1B_grid": true,
+  "units": "raw feature units of the CIC flow export; for IAT/duration/idle features this is microseconds (the report divides by 1e6 to print seconds)",
+  "scaler": "ORIGINAL Lab 1 model StandardScaler scale_ (raw_radius(scale_, eps, mutable))",
+  "features": [
+    "Fwd IAT Tot",
+    "Flow IAT Max"
+  ],
+  "raw_radius_eps_0.10": {
+    "Fwd IAT Tot": 2678213.2981784525,
+    "Flow IAT Max": 1398936.0238116162
+  },
+  "raw_radius_eps_0.25": {
+    "Fwd IAT Tot": 6695533.245446131,
+    "Flow IAT Max": 3497340.0595290405
+  },
+  "raw_radius_eps_0.10_seconds": {
+    "Fwd IAT Tot": 2.6782132981784526,
+    "Flow IAT Max": 1.3989360238116162
+  },
+  "same_example_flow": {
+    "flow_index_in_evaluation_flows": 0,
+    "definition": "first FD-FGSM evasion at eps=0.25 (the flow behind the report's realism sentence)",
+    "eps_0.10_fd_fgsm_evaded": false,
+    "eps_0.10_shift": {
+      "Fwd IAT Tot": 2678213.2981784525,
+      "Flow IAT Max": 1398936.0238116162
+    },
+    "eps_0.10_shift_seconds": {
+      "Fwd IAT Tot": 2.6782132981784526,
+      "Flow IAT Max": 1.3989360238116162
+    },
+    "eps_0.10_n_features_changed": 44
+  },
+  "first_evasion_at_eps_0.10": {
+    "flow_index": 20,
+    "matches_stored_example_raw_shifts": true,
+    "shifts": {
+      "Fwd IAT Tot": 2678213.2981784525,
+      "Flow IAT Max": 1398936.0238116162
+    },
+    "shifts_seconds": {
+      "Fwd IAT Tot": 2.6782132981784526,
+      "Flow IAT Max": 1.3989360238116162
+    },
+    "n_features_changed": 43
+  },
+  "n_successful_fd_fgsm_evasions_eps_0.10": 8,
+  "median_abs_shift_over_successful_evasions_eps_0.10": {
+    "Fwd IAT Tot": 2678213.2981784525,
+    "Flow IAT Max": 1398936.0238116162
+  },
+  "median_abs_shift_seconds": {
+    "Fwd IAT Tot": 2.6782132981784526,
+    "Flow IAT Max": 1.3989360238116162
+  },
+  "eval_set_provenance": {
+    "n": 300,
+    "selector": "evaluation_flows(split, ORIGINAL Lab1 model, n=300, seed=42)",
+    "filter": "P(attack) > 0.9 under the original model",
+    "sha256_of_flow_matrix": "bfe8185175b21e80",
+    "note": "identical set used by defend.py (Task 1C) and ablate_1c.py; verified byte-equal",
+    "sha256_full_recomputed": "bfe8185175b21e807b6504302cd400f642245eb5019ab80dad5e3d16183467f0"
+  },
+  "seed": 42,
+  "code": {
+    "script": "scripts/raw_shift_eps.py",
+    "date": "2026-11-25"
+  }
+}

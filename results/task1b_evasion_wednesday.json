@@ -1,0 +1,714 @@
+{
+  "day": "Wednesday",
+  "seed": 42,
+  "n_flows": 300,
+  "confident_threshold": 0.9,
+  "detect_threshold": 0.5,
+  "n_mutable_features": 52,
+  "pgd": {
+    "steps": 40,
+    "alpha_rule": "2.5*eps/40",
+    "restarts": 1
+  },
+  "curve": [
+    {
+      "eps_std": 0.0,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 0.1,
+          "client_measured": {
+            "requests": 0,
+            "rows": 0
+          },
+          "server_measured": {
+            "requests": 0,
+            "rows_scored": 0
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 0.1,
+          "client_measured": {
+            "requests": 0,
+            "rows": 0
+          },
+          "server_measured": {
+            "requests": 0,
+            "rows_scored": 0
+          }
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 0.1
+        }
+      }
+    },
+    {
+      "eps_std": 0.01,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 60000,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 164.1,
+          "client_measured": {
+            "requests": 60300,
+            "rows": 60300
+          },
+          "server_measured": {
+            "requests": 60300,
+            "rows_scored": 60300
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 78.3,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 4.4
+        }
+      }
+    },
+    {
+      "eps_std": 0.025,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 60000,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 161.9,
+          "client_measured": {
+            "requests": 60300,
+            "rows": 60300
+          },
+          "server_measured": {
+            "requests": 60300,
+            "rows_scored": 60300
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 77.3,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 4.3
+        }
+      }
+    },
+    {
+      "eps_std": 0.05,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 60000,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 163.3,
+          "client_measured": {
+            "requests": 60300,
+            "rows": 60300
+          },
+          "server_measured": {
+            "requests": 60300,
+            "rows_scored": 60300
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 77.3,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 4.3
+        }
+      }
+    },
+    {
+      "eps_std": 0.1,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 60000,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 167.3,
+          "client_measured": {
+            "requests": 60300,
+            "rows": 60300
+          },
+          "server_measured": {
+            "requests": 60300,
+            "rows_scored": 60300
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.9733333333333334,
+          "evasion_rate": 0.02666666666666667,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": 5091015.237712132,
+          "median_features_changed": 45.0,
+          "example_raw_shifts": {
+            "Flow Duration": 2698073.541975274,
+            "Fwd IAT Tot": 2678213.2981784525,
+            "Flow IAT Max": 1398936.0238116162,
+            "Fwd IAT Max": 1370604.1057424427,
+            "Idle Max": -1070930.0212734907,
+            "Idle Mean": -1047109.0575507941,
+            "Idle Min": -1033547.1239851716,
+            "Fwd IAT Mean": 1015226.7261706716
+          },
+          "seconds": 86.1,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 0.9733333333333334,
+          "evasion_rate": 0.02666666666666667,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": 5091015.190228697,
+          "median_features_changed": 51.0,
+          "example_raw_shifts": {
+            "Flow Duration": 2698073.5,
+            "Fwd IAT Tot": 2678213.25,
+            "Flow IAT Max": 1398936.0,
+            "Fwd IAT Max": 1370604.125,
+            "Idle Max": -1070930.0,
+            "Idle Mean": -1047109.0625,
+            "Idle Min": -1033547.125,
+            "Fwd IAT Mean": 1015226.75
+          },
+          "seconds": 4.5
+        }
+      }
+    },
+    {
+      "eps_std": 0.15,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0,
+          "budget": {
+            "model_calls": 60000,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": null,
+          "median_features_changed": null,
+          "example_raw_shifts": {},
+          "seconds": 180.2,
+          "client_measured": {
+            "requests": 60300,
+            "rows": 60300
+          },
+          "server_measured": {
+            "requests": 60300,
+            "rows_scored": 60300
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.8966666666666667,
+          "evasion_rate": 0.10333333333333333,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": 7636522.855660272,
+          "median_features_changed": 44.0,
+          "example_raw_shifts": {
+            "Flow Duration": 4047110.3129629106,
+            "Fwd IAT Tot": 4017319.947267678,
+            "Flow IAT Max": 2098404.035717424,
+            "Fwd IAT Max": 2055906.1586136639,
+            "Idle Max": -1606395.0319102362,
+            "Idle Mean": -1570663.586326191,
+            "Idle Min": -1550320.6859777572,
+            "Fwd IAT Mean": 1522840.0892560072
+          },
+          "seconds": 83.9,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 0.8966666666666667,
+          "evasion_rate": 0.10333333333333333,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": 7636522.821796285,
+          "median_features_changed": 51.0,
+          "example_raw_shifts": {
+            "Flow Duration": 4047110.25,
+            "Fwd IAT Tot": 4017320.0,
+            "Flow IAT Max": 2098404.0,
+            "Fwd IAT Max": 2055906.125,
+            "Idle Max": -1606395.0,
+            "Idle Mean": -1570663.625,
+            "Idle Min": -1550320.625,
+            "Fwd IAT Mean": 1522840.125
+          },
+          "seconds": 4.5
+        }
+      }
+    },
+    {
+      "eps_std": 0.25,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.9733333333333334,
+          "evasion_rate": 0.02666666666666667,
+          "budget": {
+            "model_calls": 59217,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": 7156738.725700552,
+          "median_features_changed": 49.5,
+          "example_raw_shifts": {
+            "Fwd IAT Tot": 4360449.995923439,
+            "Idle Mean": 2537108.1702343137,
+            "Idle Min": 2237297.4087069416,
+            "Idle Max": 2020963.908837539,
+            "Fwd IAT Mean": 2012602.825167653,
+            "Fwd IAT Min": 2012602.825167653,
+            "Flow Duration": 1747317.7552971428,
+            "Flow IAT Mean": 1474707.20823854
+          },
+          "seconds": 176.5,
+          "client_measured": {
+            "requests": 59517,
+            "rows": 59517
+          },
+          "server_measured": {
+            "requests": 59517,
+            "rows_scored": 59517
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.35,
+          "evasion_rate": 0.65,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": 10793179.358554253,
+          "median_features_changed": 44.0,
+          "example_raw_shifts": {
+            "Fwd IAT Tot": 6695533.245446131,
+            "Flow IAT Max": 3497340.0595290405,
+            "Fwd IAT Max": 3426510.2643561065,
+            "Idle Max": -2677325.053183727,
+            "Idle Mean": -2617772.643876985,
+            "Idle Min": -2583867.8099629288,
+            "Fwd IAT Mean": 2538066.815426679,
+            "Flow IAT Mean": 2518612.734283438
+          },
+          "seconds": 87.4,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 0.35,
+          "evasion_rate": 0.65,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": 12727537.988593906,
+          "median_features_changed": 49.0,
+          "example_raw_shifts": {
+            "Flow Duration": 6745184.0,
+            "Fwd IAT Tot": 6695533.0,
+            "Flow IAT Max": 3497340.0,
+            "Fwd IAT Max": 3426510.25,
+            "Idle Max": -2677325.0,
+            "Idle Mean": -2617772.75,
+            "Idle Min": -2583867.75,
+            "Fwd IAT Mean": 2538066.75
+          },
+          "seconds": 4.5
+        }
+      }
+    },
+    {
+      "eps_std": 0.5,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.7433333333333334,
+          "evasion_rate": 0.25666666666666665,
+          "budget": {
+            "model_calls": 48874,
+            "gradient_computations": 0
+          },
+          "median_l2_raw_of_successful_change": 11557328.534947785,
+          "median_features_changed": 48.0,
+          "example_raw_shifts": {
+            "Flow Duration": 11416886.01880489,
+            "Fwd IAT Tot": 7954671.787884626,
+            "Idle Max": -5016273.273593632,
+            "Fwd IAT Mean": 4675480.443027164,
+            "Fwd IAT Min": 4675480.443027164,
+            "Flow IAT Max": 4120331.754009214,
+            "Idle Mean": -2771700.610772703,
+            "Flow IAT Mean": 2410219.0790297566
+          },
+          "seconds": 130.7,
+          "client_measured": {
+            "requests": 49174,
+            "rows": 49174
+          },
+          "server_measured": {
+            "requests": 49174,
+            "rows_scored": 49174
+          }
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0,
+          "budget": {
+            "model_calls": 31500,
+            "gradient_computations": 300
+          },
+          "median_l2_raw_of_successful_change": 21586358.717108157,
+          "median_features_changed": 44.0,
+          "example_raw_shifts": {
+            "Fwd IAT Tot": 13391066.490892261,
+            "Flow IAT Max": 6994680.119058081,
+            "Fwd IAT Max": 6853020.528712213,
+            "Idle Max": -5354650.106367454,
+            "Idle Mean": -5235545.28775397,
+            "Idle Min": -5167735.6199258575,
+            "Fwd IAT Mean": 5076133.630853358,
+            "Flow IAT Mean": 5037225.468566876
+          },
+          "seconds": 76.9,
+          "client_measured": {
+            "requests": 31200,
+            "rows": 31200
+          },
+          "server_measured": {
+            "requests": 31200,
+            "rows_scored": 31200
+          }
+        },
+        "pgd": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0,
+          "budget": {
+            "model_calls": 0,
+            "gradient_computations": 12000
+          },
+          "median_l2_raw_of_successful_change": 25455075.977187276,
+          "median_features_changed": 49.0,
+          "example_raw_shifts": {
+            "Flow Duration": 13490368.0,
+            "Fwd IAT Tot": 13391066.0,
+            "Flow IAT Max": 6994680.0,
+            "Fwd IAT Max": 6853020.5,
+            "Idle Max": -5354650.0,
+            "Idle Mean": -5235545.5,
+            "Idle Min": -5167735.5,
+            "Fwd IAT Mean": 5076133.5
+          },
+          "seconds": 4.4
+        }
+      }
+    }
+  ],
+  "eval_set_provenance": {
+    "n": 300,
+    "selector": "evaluation_flows(split, ORIGINAL Lab1 model, n=300, seed=42)",
+    "filter": "P(attack) > 0.9 under the original model",
+    "sha256_of_flow_matrix": "bfe8185175b21e80",
+    "note": "identical set used by defend.py (Task 1C) and ablate_1c.py; verified byte-equal"
+  },
+  "n_eval_flows": 300,
+  "transport": {
+    "random_search": "http",
+    "fd_fgsm": "http",
+    "pgd": "in-process white-box",
+    "success_check": "in-process (experimenter ground truth, not an attacker query)",
+    "base_url": "http://127.0.0.1:8055",
+    "server_stats_final": {
+      "requests": 630116,
+      "rows_scored": 630116,
+      "score_requests": 0,
+      "score_batch_requests": 630116
+    },
+    "server_stats_note": "server_stats_final is cumulative since the API process started and includes a 1525-row timing run; use the per-cell server_measured fields"
+  },
+  "superseded_cells": {
+    "reason": "stored values not reproducible by current code; current code is deterministic and HTTP == in-process (scripts/audit/diag_random.py, scripts/audit/diag_scores.py)",
+    "n_cells": 11,
+    "cells": [
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "detection_rate",
+        "old_value": 0.9766666666666667,
+        "new_value": 0.9733333333333334
+      },
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "evasion_rate",
+        "old_value": 0.023333333333333334,
+        "new_value": 0.02666666666666667
+      },
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "budget",
+        "old_value": {
+          "model_calls": 59135,
+          "gradient_computations": 0
+        },
+        "new_value": {
+          "model_calls": 59217,
+          "gradient_computations": 0
+        }
+      },
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "median_l2_raw_of_successful_change",
+        "old_value": 6353621.116385217,
+        "new_value": 7156738.725700552
+      },
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "median_features_changed",
+        "old_value": 48.0,
+        "new_value": 49.5
+      },
+      {
+        "eps_std": 0.25,
+        "attack": "random_search",
+        "field": "example_raw_shifts",
+        "old_value": {
+          "Fwd IAT Tot": 4418672.546790046,
+          "Flow IAT Max": 3375135.5029067993,
+          "Fwd IAT Mean": 1805826.258206882,
+          "Fwd IAT Min": 1805826.258206882,
+          "Idle Min": 1438952.1664287152,
+          "Flow IAT Std": 440716.0324048942,
+          "Fwd IAT Std": 416149.6747291202,
+          "Idle Std": -180181.4358266667
+        },
+        "new_value": {
+          "Fwd IAT Tot": 4360449.995923439,
+          "Idle Mean": 2537108.1702343137,
+          "Idle Min": 2237297.4087069416,
+          "Idle Max": 2020963.908837539,
+          "Fwd IAT Mean": 2012602.825167653,
+          "Fwd IAT Min": 2012602.825167653,
+          "Flow Duration": 1747317.7552971428,
+          "Flow IAT Mean": 1474707.20823854
+        }
+      },
+      {
+        "eps_std": 0.5,
+        "attack": "random_search",
+        "field": "detection_rate",
+        "old_value": 0.7633333333333333,
+        "new_value": 0.7433333333333334
+      },
+      {
+        "eps_std": 0.5,
+        "attack": "random_search",
+        "field": "evasion_rate",
+        "old_value": 0.23666666666666666,
+        "new_value": 0.25666666666666665
+      },
+      {
+        "eps_std": 0.5,
+        "attack": "random_search",
+        "field": "budget",
+        "old_value": {
+          "model_calls": 48453,
+          "gradient_computations": 0
+        },
+        "new_value": {
+          "model_calls": 48874,
+          "gradient_computations": 0
+        }
+      },
+      {
+        "eps_std": 0.5,
+        "attack": "random_search",
+        "field": "median_l2_raw_of_successful_change",
+        "old_value": 12783001.968294436,
+        "new_value": 11557328.534947785
+      },
+      {
+        "eps_std": 0.5,
+        "attack": "random_search",
+        "field": "example_raw_shifts",
+        "old_value": {
+          "Fwd IAT Max": 6832012.325800832,
+          "Flow Duration": 6686701.784112644,
+          "Idle Min": -2562318.1040006373,
+          "Flow IAT Mean": 2487197.922467089,
+          "Idle Mean": 2206698.593384212,
+          "Fwd IAT Mean": 2175620.782989818,
+          "Fwd IAT Min": 2175620.782989818,
+          "Flow IAT Std": 1384231.2135447043
+        },
+        "new_value": {
+          "Flow Duration": 11416886.01880489,
+          "Fwd IAT Tot": 7954671.787884626,
+          "Idle Max": -5016273.273593632,
+          "Fwd IAT Mean": 4675480.443027164,
+          "Fwd IAT Min": 4675480.443027164,
+          "Flow IAT Max": 4120331.754009214,
+          "Idle Mean": -2771700.610772703,
+          "Flow IAT Mean": 2410219.0790297566
+        }
+      }
+    ]
+  }
+}

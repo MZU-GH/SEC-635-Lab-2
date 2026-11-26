@@ -1,0 +1,196 @@
+{
+  "day": "Wednesday",
+  "seed": 42,
+  "n_eval_flows": 300,
+  "adversarial_training": {
+    "eps_std": 0.25,
+    "steps": 40,
+    "rounds": 2,
+    "history": [
+      {
+        "round": 0,
+        "eps_std": 0.25,
+        "steps": 40,
+        "n_clean": 731322,
+        "n_adversarial": 731322,
+        "train_rows_used": 1462644,
+        "seconds": 319.7
+      },
+      {
+        "round": 1,
+        "eps_std": 0.25,
+        "steps": 40,
+        "n_clean": 731322,
+        "n_adversarial": 731322,
+        "train_rows_used": 1462644,
+        "seconds": 352.5
+      }
+    ]
+  },
+  "clean_accuracy": {
+    "before": 0.9999968094338659,
+    "after": 0.9999936188677319
+  },
+  "eps_units": "standardized by the ORIGINAL Lab 1 scaler, shared with Task 1B",
+  "curve_after": [
+    {
+      "eps_std": 0.0,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.01,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.025,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "pgd": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.05,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.9966666666666667,
+          "evasion_rate": 0.0033333333333333335
+        },
+        "pgd": {
+          "detection_rate": 0.9966666666666667,
+          "evasion_rate": 0.0033333333333333335
+        }
+      }
+    },
+    {
+      "eps_std": 0.1,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 1.0,
+          "evasion_rate": 0.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.8733333333333333,
+          "evasion_rate": 0.12666666666666668
+        },
+        "pgd": {
+          "detection_rate": 0.8633333333333333,
+          "evasion_rate": 0.13666666666666666
+        }
+      }
+    },
+    {
+      "eps_std": 0.15,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.95,
+          "evasion_rate": 0.05
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        },
+        "pgd": {
+          "detection_rate": 0.35,
+          "evasion_rate": 0.65
+        }
+      }
+    },
+    {
+      "eps_std": 0.25,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.8433333333333333,
+          "evasion_rate": 0.15666666666666668
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        },
+        "pgd": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        }
+      }
+    },
+    {
+      "eps_std": 0.5,
+      "attacks": {
+        "random_search": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        },
+        "fd_fgsm": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        },
+        "pgd": {
+          "detection_rate": 0.0,
+          "evasion_rate": 1.0
+        }
+      }
+    }
+  ],
+  "smoothing": {
+    "sigma_std": 0.25,
+    "n_samples": 1000,
+    "alpha": 0.05,
+    "sigma_units": "standardized; converted per feature via scale_ before sampling",
+    "n_certified": 200,
+    "n_abstain": 0,
+    "radius_median": 0.6699778171936303,
+    "radius_p25": 0.6117087625254585,
+    "radius_p75": 0.6699778171936303,
+    "radius_mean": 0.616620241021362,
+    "frac_radius_gt_0": 1.0,
+    "radius_median_per_feature": 0.07635105826255603,
+    "median_vote_share": 1.0
+  },
+  "smoothing_note": "sigma is standardized and converted to raw units per feature via the DEFENDED model's refit scale_ before sampling. An earlier version sampled sigma in raw units, which on features spanning 5.6e-2 to 2.6e7 is a median of 9.2e-4 standardized units - effectively no noise, and a certificate that proved nothing.",
+  "eval_set_provenance": {
+    "n": 300,
+    "selector": "evaluation_flows(split, ORIGINAL Lab1 model, n=300, seed=42)",
+    "filter": "P(attack) > 0.9 under the original model",
+    "sha256_of_flow_matrix": "bfe8185175b21e80",
+    "note": "identical set used by defend.py (Task 1C) and ablate_1c.py; verified byte-equal"
+  }
+}

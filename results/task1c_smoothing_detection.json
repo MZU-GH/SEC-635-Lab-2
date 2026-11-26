@@ -1,0 +1,319 @@
+{
+  "day": "Wednesday",
+  "n_flows": 300,
+  "seeds": {
+    "base": 42,
+    "smoothing_noise": "SeedSequence([42, eps_idx, source_idx, attack_idx])",
+    "eot": "torch.Generator seed 42+1000+eps_idx",
+    "attack_internal": "SEED=42 (attack_pgd)"
+  },
+  "smoothing": {
+    "smoothed_model": "defended model (models/task1c_defended.joblib), as in defend.py",
+    "sigma_std": 0.25,
+    "n_samples": 1000,
+    "alpha": 0.05,
+    "sigma_units": "standardized; converted per feature via the DEFENDED model's scale_ (as defend.certify)",
+    "abstain_rule": "CP lower bound (alpha/2, as certify) on top-class vote share <= 0.5, i.e. certified radius <= 0"
+  },
+  "eps_units": "standardized by the ORIGINAL Lab 1 scaler (raw_radius with base scale_), same as 1B/1C",
+  "eot": {
+    "draws_per_step": 32,
+    "objective": "mean base logit over noise draws; attack_pgd unchanged (40 steps, 2.5*rad/40, 1 restart)"
+  },
+  "curve": [
+    {
+      "eps_std": 0.0,
+      "sources": {
+        "defended_base": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 1.0,
+            "abstain_rate": 0.0,
+            "flagged_fail_closed_rate": 1.0,
+            "majority_attack_rate_ignoring_abstain": 1.0,
+            "n_detected": 300,
+            "n_abstain": 0,
+            "median_attack_vote_share": 0.997,
+            "unsmoothed_defended_detection_rate": 1.0
+          }
+        }
+      }
+    },
+    {
+      "eps_std": 0.1,
+      "sources": {
+        "defended_base": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.82,
+            "abstain_rate": 0.04,
+            "flagged_fail_closed_rate": 0.86,
+            "majority_attack_rate_ignoring_abstain": 0.8333333333333334,
+            "n_detected": 246,
+            "n_abstain": 12,
+            "median_attack_vote_share": 0.6485000000000001,
+            "unsmoothed_defended_detection_rate": 0.8733333333333333
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.8533333333333334,
+            "abstain_rate": 0.006666666666666667,
+            "flagged_fail_closed_rate": 0.86,
+            "majority_attack_rate_ignoring_abstain": 0.8566666666666667,
+            "n_detected": 256,
+            "n_abstain": 2,
+            "median_attack_vote_share": 0.712,
+            "unsmoothed_defended_detection_rate": 0.8633333333333333
+          }
+        },
+        "original_lab1": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.9,
+            "abstain_rate": 0.006666666666666667,
+            "flagged_fail_closed_rate": 0.9066666666666666,
+            "majority_attack_rate_ignoring_abstain": 0.9033333333333333,
+            "n_detected": 270,
+            "n_abstain": 2,
+            "median_attack_vote_share": 0.9235,
+            "unsmoothed_defended_detection_rate": 0.9733333333333334
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.9066666666666666,
+            "abstain_rate": 0.056666666666666664,
+            "flagged_fail_closed_rate": 0.9633333333333334,
+            "majority_attack_rate_ignoring_abstain": 0.9266666666666666,
+            "n_detected": 272,
+            "n_abstain": 17,
+            "median_attack_vote_share": 0.952,
+            "unsmoothed_defended_detection_rate": 0.9966666666666667
+          }
+        },
+        "eot_pgd": {
+          "pgd_vs_smoothed": {
+            "n_flows": 300,
+            "detection_rate": 0.85,
+            "abstain_rate": 0.013333333333333334,
+            "flagged_fail_closed_rate": 0.8633333333333333,
+            "majority_attack_rate_ignoring_abstain": 0.8566666666666667,
+            "n_detected": 255,
+            "n_abstain": 4,
+            "median_attack_vote_share": 0.708,
+            "unsmoothed_defended_detection_rate": 0.8633333333333333
+          }
+        }
+      }
+    },
+    {
+      "eps_std": 0.15,
+      "sources": {
+        "defended_base": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.0,
+            "abstain_rate": 0.02666666666666667,
+            "flagged_fail_closed_rate": 0.02666666666666667,
+            "majority_attack_rate_ignoring_abstain": 0.0,
+            "n_detected": 0,
+            "n_abstain": 8,
+            "median_attack_vote_share": 0.2245,
+            "unsmoothed_defended_detection_rate": 0.0
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.2966666666666667,
+            "abstain_rate": 0.05333333333333334,
+            "flagged_fail_closed_rate": 0.35,
+            "majority_attack_rate_ignoring_abstain": 0.35,
+            "n_detected": 89,
+            "n_abstain": 16,
+            "median_attack_vote_share": 0.304,
+            "unsmoothed_defended_detection_rate": 0.35
+          }
+        },
+        "original_lab1": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.86,
+            "abstain_rate": 0.016666666666666666,
+            "flagged_fail_closed_rate": 0.8766666666666667,
+            "majority_attack_rate_ignoring_abstain": 0.87,
+            "n_detected": 258,
+            "n_abstain": 5,
+            "median_attack_vote_share": 0.792,
+            "unsmoothed_defended_detection_rate": 0.8966666666666666
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.8866666666666667,
+            "abstain_rate": 0.01,
+            "flagged_fail_closed_rate": 0.8966666666666666,
+            "majority_attack_rate_ignoring_abstain": 0.8933333333333333,
+            "n_detected": 266,
+            "n_abstain": 3,
+            "median_attack_vote_share": 0.874,
+            "unsmoothed_defended_detection_rate": 0.9066666666666666
+          }
+        },
+        "eot_pgd": {
+          "pgd_vs_smoothed": {
+            "n_flows": 300,
+            "detection_rate": 0.3,
+            "abstain_rate": 0.05,
+            "flagged_fail_closed_rate": 0.35,
+            "majority_attack_rate_ignoring_abstain": 0.3466666666666667,
+            "n_detected": 90,
+            "n_abstain": 15,
+            "median_attack_vote_share": 0.301,
+            "unsmoothed_defended_detection_rate": 0.35
+          }
+        }
+      }
+    },
+    {
+      "eps_std": 0.25,
+      "sources": {
+        "defended_base": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.0,
+            "abstain_rate": 0.0,
+            "flagged_fail_closed_rate": 0.0,
+            "majority_attack_rate_ignoring_abstain": 0.0,
+            "n_detected": 0,
+            "n_abstain": 0,
+            "median_attack_vote_share": 0.002,
+            "unsmoothed_defended_detection_rate": 0.0
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.0,
+            "abstain_rate": 0.0,
+            "flagged_fail_closed_rate": 0.0,
+            "majority_attack_rate_ignoring_abstain": 0.0,
+            "n_detected": 0,
+            "n_abstain": 0,
+            "median_attack_vote_share": 0.004,
+            "unsmoothed_defended_detection_rate": 0.0
+          }
+        },
+        "original_lab1": {
+          "fd_fgsm": {
+            "n_flows": 300,
+            "detection_rate": 0.03,
+            "abstain_rate": 0.31666666666666665,
+            "flagged_fail_closed_rate": 0.3466666666666667,
+            "majority_attack_rate_ignoring_abstain": 0.2866666666666667,
+            "n_detected": 9,
+            "n_abstain": 95,
+            "median_attack_vote_share": 0.335,
+            "unsmoothed_defended_detection_rate": 0.35
+          },
+          "pgd": {
+            "n_flows": 300,
+            "detection_rate": 0.42333333333333334,
+            "abstain_rate": 0.35333333333333333,
+            "flagged_fail_closed_rate": 0.7766666666666666,
+            "majority_attack_rate_ignoring_abstain": 0.7233333333333334,
+            "n_detected": 127,
+            "n_abstain": 106,
+            "median_attack_vote_share": 0.5235000000000001,
+            "unsmoothed_defended_detection_rate": 0.7766666666666666
+          }
+        },
+        "eot_pgd": {
+          "pgd_vs_smoothed": {
+            "n_flows": 300,
+            "detection_rate": 0.0,
+            "abstain_rate": 0.0,
+            "flagged_fail_closed_rate": 0.0,
+            "majority_attack_rate_ignoring_abstain": 0.0,
+            "n_detected": 0,
+            "n_abstain": 0,
+            "median_attack_vote_share": 0.004,
+            "unsmoothed_defended_detection_rate": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "sanity_checks": [
+    {
+      "check": "sigma/n/alpha equal stored",
+      "pass": true,
+      "detail": "run=(0.25,1000,0.05) stored=(0.25,1000,0.05)"
+    },
+    {
+      "check": "certify() on 200 test rows reproduces stored smoothing block",
+      "pass": true,
+      "detail": "all 7 fields equal"
+    },
+    {
+      "check": "smoothed clean accuracy on the 200 test rows >= stored clean accuracy - 0.01",
+      "pass": true,
+      "detail": "smoothed=1.000000 stored_defended_clean=0.999994 abstain_rate=0.0000"
+    },
+    {
+      "check": "eps=0 smoothed detection on eval flows within 0.01 of stored defended eps=0 detection",
+      "pass": true,
+      "detail": "smoothed=1.0000 stored_unsmoothed=1.0000 abstain=0.0000"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.1 fd_fgsm",
+      "pass": true,
+      "detail": "got=0.873333 stored=0.873333"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.1 pgd",
+      "pass": true,
+      "detail": "got=0.863333 stored=0.863333"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.15 fd_fgsm",
+      "pass": true,
+      "detail": "got=0.000000 stored=0.000000"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.15 pgd",
+      "pass": true,
+      "detail": "got=0.350000 stored=0.350000"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.25 fd_fgsm",
+      "pass": true,
+      "detail": "got=0.000000 stored=0.000000"
+    },
+    {
+      "check": "unsmoothed defended detection reproduces task1c_defense curve_after eps=0.25 pgd",
+      "pass": true,
+      "detail": "got=0.000000 stored=0.000000"
+    }
+  ],
+  "recomputed_certify": {
+    "sigma_std": 0.25,
+    "n_samples": 1000,
+    "alpha": 0.05,
+    "sigma_units": "standardized; converted per feature via scale_ before sampling",
+    "n_certified": 200,
+    "n_abstain": 0,
+    "radius_median": 0.6699778171936303,
+    "radius_p25": 0.6117087625254585,
+    "radius_p75": 0.6699778171936303,
+    "radius_mean": 0.616620241021362,
+    "frac_radius_gt_0": 1.0,
+    "radius_median_per_feature": 0.07635105826255603,
+    "median_vote_share": 1.0
+  },
+  "eval_set_provenance": {
+    "n": 300,
+    "sha256_of_flow_matrix": "bfe8185175b21e80",
+    "sha256_full": "bfe8185175b21e807b6504302cd400f642245eb5019ab80dad5e3d16183467f0",
+    "selector": "evaluation_flows(split, ORIGINAL Lab1 model, n=300, seed=42)",
+    "equals_task1c_defense_json": true
+  },
+  "code": {
+    "script": "detector/smoothing_eval.py",
+    "date": "2026-11-25"
+  }
+}

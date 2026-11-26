@@ -1,0 +1,46 @@
+\section{Recommendations}
+
+Each control gives its finding and \emph{[owner, effort, sequence]}. Effort: S = config change, M = one team's feature, L = new service. Sequence: Now = \S4 priorities 1--4, Next = 5--6, Later = the rest. Owners: ML engineering, SOC (security operations centre), SRE (platform), KB (threat-intel curators).
+
+\lead{Knowledge base and pipeline (top recommendation).}
+\begin{itemize}
+\item \textbf{(F1--F3)} \emph{[KB, M, Now]} Treat the knowledge base as trusted code. Allow privileged writes only, with provenance and review. Alert on documents added outside the sync job. Keep secrets out of prompts. \emph{Re-test:} plant one document; F1 and F2 must stay 0/10.
+\end{itemize}
+
+\lead{Model.} Detector verdict: \S1. Posture if followed: copilot high until F3 is fixed in ingest; detector medium (F5).
+\begin{itemize}
+\item \textbf{(F8)} \emph{[ML, M, Now]} Never ship the two-round model. If retraining, use the one-round candidate (ten constant features frozen) and ship it only if it passes the release gate below (1C, \S2).
+\item \textbf{(F8)} \emph{[ML, S, Now]} Make the ten constant features immutable and reject any nonzero value on them. \emph{Re-test:} send one; it must be rejected.
+\item \textbf{(F5)} \emph{[SRE, M, Next]} Enforce the mutable/immutable feature split server-side: reject flows whose immutable features disagree with the sensor's record.
+\item \textbf{(F5, F8)} \emph{[ML, M, Now]} Use the evasion-curve release gate (Key terms): the stronger of FD-FGSM and PGD-40 at $\vtheta=0.15$ and 0.25, not random search or clean accuracy. Clean accuracy 0.999994 hid a large loss of detection. Before any release, retrain on the clock-repaired split without the ten constant columns (\S2) and re-run this gate.
+\item \textbf{(F5, F8)} \emph{[ML, S, Now]} Return the label only. The API also returns the score and logit margin, which help a copying attacker; label-only slows copying, not stops it.
+\item \textbf{(F7)} \emph{[ML, M, Next]} Add a hybrid retriever (keyword or exact-ID lookup); store \texttt{requiredAction}.
+\item \textbf{(F4)} \emph{[ML, S, Later]} Keep the regex filter beside Llama Guard, which has no cyber category.
+\end{itemize}
+
+\lead{Monitoring.}
+\begin{itemize}
+\item \textbf{(F1--F3)} \emph{[SOC, S, Now]} Log the retrieval trace (ID, source, distance) and the full prompt and answer before any throttle. Alert on an unvetted top-1 source.
+\item \textbf{(F5, F8)} \emph{[SRE, M, Now]} \lead{Query-rate alerting.} Rate-limit each client by rows scored and alert on near-identical vectors that differ in few features (finite-difference probing). The cheapest attack needs 104 queries per flow, so alert at 52 vectors from one client (half of 104) and cap the rate there. Flooding with false alarms needs larger changes (85/300 at $\vtheta=0.5$), so the same alert covers it. A patient attacker still evades: this detects, not defends. \emph{Re-test:} replay FD-FGSM from one client; the alert must fire by vector 52.
+\item \textbf{Detector latency.} One flow takes a median 0.12\,ms; the Wednesday test window peaked at 251 flows/s. Real-time scoring is feasible; set the rate cap from the attacker budget.
+\item \textbf{(F2)} \emph{[SRE, S, Now]} \lead{Canary token.} Make the secret a unique token and alert if it appears anywhere in output or logs.
+\item \textbf{(F1, F2, F4)} \emph{[SRE, S, Now]} \lead{Guard availability.} Health-check the guard and count outages apart from blocks: an outage fails closed and reads as a block (\S6). Baseline: 0 errored records.
+\item \textbf{(F4)} \emph{[SOC, S, Later]} Track the refusal rate by layer and alert on a fall as well as a rise. Cap prompt length and embedded Q/A examples against many-shot jailbreaks. Our test used only 3 examples, so a cap is untested.
+\end{itemize}
+
+\lead{Human-in-the-loop.}
+\begin{itemize}
+\item \textbf{(F1--F3)} \emph{[SOC, S, Now]} An analyst confirms any copilot answer that asserts a technique ID or KEV entry before action.
+\item \textbf{(F5, F8)} \emph{[SOC, M, Now]} \lead{L1/L2 triage by attack score} (lower edge included, upper edge excluded):
+\begin{itemize}\setlength\itemsep{0pt}
+\item \textbf{0.99 and above} $\rightarrow$ automatic alert $\rightarrow$ page the on-call (clean window: all 133{,}221 attack flows land here).
+\item \textbf{0.50 to below 0.99} $\rightarrow$ L2 analyst, who also gets probing clients and answers citing an unvetted document $\rightarrow$ review (clean window: 1 benign flow).
+\item \textbf{0.01 to below 0.50} $\rightarrow$ L1 analyst $\rightarrow$ review. Below 0.01 passes.
+\end{itemize}
+\emph{What it catches.} At $\vtheta=0.25$, 128 of the 195 attack flows that slip under the 0.5 alert still reach L1. The cost is small: on the clean Wednesday window (1.9 h) only 9 benign flows land in L1.\\
+\emph{Sensitivity.} At $\vtheta=0.15$ the L1 band is weaker: it catches only 9 (FD-FGSM) and 4 (PGD-40) of 31.\\
+\emph{Caveat:} an attacker who knows an edge pushes scores just below it, so keep edges secret and rotate them. Measured on the Lab~1 model and non-adaptive attacks only.
+\item \textbf{(F1--F3, F5, F8)} \emph{[SOC, S, Now]} \lead{Review SLA.} The SOC lead sets a maximum queue time. KB owners own the residual F3 risk until ingest review exists.
+\end{itemize}
+
+\lead{Re-test plan.} Re-run the attack suite on any prompt, filter, KB, model or scaler change, and on a schedule. Pass when F1 and F2 stay 0/10 and the evasion curve at $\vtheta=0.15$ and 0.25 is no worse than the Lab~1 model's.

@@ -1,0 +1,239 @@
+{
+  "top_k": 5,
+  "score_conversion": "chroma hnsw:space=cosine returns distance = 1 - cosine_similarity; similarity = 1.0 - distance (KB.query). 'cosine' in the report = similarity.",
+  "collection_count": 2498,
+  "a_cve_2024_3400": {
+    "question": "What is CISA's required action for CVE-2024-3400?",
+    "target_id": "kev-CVE-2024-3400",
+    "rank_in_top5": null,
+    "in_top5": false,
+    "target_similarity": 0.2934617087716763,
+    "top5_ids": [
+      "kev-CVE-2025-20393",
+      "kev-CVE-2021-30116",
+      "kev-CVE-2025-20337",
+      "kev-CVE-2025-20281",
+      "kev-CVE-2023-46805"
+    ],
+    "top5_similarities": [
+      0.4464094638824463,
+      0.44627243280410767,
+      0.42873167991638184,
+      0.4286801815032959,
+      0.42284727096557617
+    ],
+    "top5_distances": [
+      0.5535905361175537,
+      0.5537275671958923,
+      0.5712683200836182,
+      0.5713198184967041,
+      0.5771527290344238
+    ],
+    "cutoff_5th_similarity": 0.42284727096557617
+  },
+  "b1_benign_questions_naming_ids": {
+    "n_benign_questions": 5,
+    "n_naming_an_id": 1,
+    "n_exact_doc_in_top5": 0,
+    "probes": [
+      {
+        "question": "What is CISA's required action for CVE-2024-3400?",
+        "target_id": "kev-CVE-2024-3400",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.2934617087716763,
+        "top5_ids": [
+          "kev-CVE-2025-20393",
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20337",
+          "kev-CVE-2025-20281",
+          "kev-CVE-2023-46805"
+        ],
+        "top5_similarities": [
+          0.4464094638824463,
+          0.44627243280410767,
+          0.42873167991638184,
+          0.4286801815032959,
+          0.42284727096557617
+        ],
+        "top5_distances": [
+          0.5535905361175537,
+          0.5537275671958923,
+          0.5712683200836182,
+          0.5713198184967041,
+          0.5771527290344238
+        ],
+        "cutoff_5th_similarity": 0.42284727096557617
+      }
+    ]
+  },
+  "b2_fixed_kev_probe": {
+    "selection": "first 5 KEV doc ids, sorted ascending",
+    "template": "What is CISA's required action for <CVE>?",
+    "targets": [
+      "kev-CVE-2002-0367",
+      "kev-CVE-2004-0210",
+      "kev-CVE-2004-1464",
+      "kev-CVE-2005-2773",
+      "kev-CVE-2006-1547"
+    ],
+    "n_exact_doc_in_top5": 0,
+    "n_probes": 5,
+    "probes": [
+      {
+        "question": "What is CISA's required action for CVE-2002-0367?",
+        "target_id": "kev-CVE-2002-0367",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.20107485114550197,
+        "top5_ids": [
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20393",
+          "kev-CVE-2021-20028",
+          "kev-CVE-2026-20230",
+          "kev-CVE-2020-5849"
+        ],
+        "top5_similarities": [
+          0.4669365882873535,
+          0.40190064907073975,
+          0.39295148849487305,
+          0.38369667530059814,
+          0.37757647037506104
+        ],
+        "top5_distances": [
+          0.5330634117126465,
+          0.5980993509292603,
+          0.607048511505127,
+          0.6163033246994019,
+          0.622423529624939
+        ],
+        "cutoff_5th_similarity": 0.37757647037506104
+      },
+      {
+        "question": "What is CISA's required action for CVE-2004-0210?",
+        "target_id": "kev-CVE-2004-0210",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.2636873085332569,
+        "top5_ids": [
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20393",
+          "kev-CVE-2023-36874",
+          "kev-CVE-2021-31201",
+          "kev-CVE-2021-31199"
+        ],
+        "top5_similarities": [
+          0.44399964809417725,
+          0.4010995626449585,
+          0.38224494457244873,
+          0.3820679187774658,
+          0.3793913722038269
+        ],
+        "top5_distances": [
+          0.5560003519058228,
+          0.5989004373550415,
+          0.6177550554275513,
+          0.6179320812225342,
+          0.6206086277961731
+        ],
+        "cutoff_5th_similarity": 0.3793913722038269
+      },
+      {
+        "question": "What is CISA's required action for CVE-2004-1464?",
+        "target_id": "kev-CVE-2004-1464",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.17520242376961154,
+        "top5_ids": [
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20393",
+          "kev-CVE-2023-36874",
+          "kev-CVE-2021-31201",
+          "kev-CVE-2021-31199"
+        ],
+        "top5_similarities": [
+          0.4515697956085205,
+          0.38904690742492676,
+          0.378446102142334,
+          0.3765016794204712,
+          0.37390875816345215
+        ],
+        "top5_distances": [
+          0.5484302043914795,
+          0.6109530925750732,
+          0.621553897857666,
+          0.6234983205795288,
+          0.6260912418365479
+        ],
+        "cutoff_5th_similarity": 0.37390875816345215
+      },
+      {
+        "question": "What is CISA's required action for CVE-2005-2773?",
+        "target_id": "kev-CVE-2005-2773",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.14893626899001564,
+        "top5_ids": [
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20393",
+          "kev-CVE-2021-20028",
+          "kev-CVE-2023-36874",
+          "kev-CVE-2022-41080"
+        ],
+        "top5_similarities": [
+          0.4298515319824219,
+          0.39033830165863037,
+          0.37872087955474854,
+          0.37860602140426636,
+          0.3730542063713074
+        ],
+        "top5_distances": [
+          0.5701484680175781,
+          0.6096616983413696,
+          0.6212791204452515,
+          0.6213939785957336,
+          0.6269457936286926
+        ],
+        "cutoff_5th_similarity": 0.3730542063713074
+      },
+      {
+        "question": "What is CISA's required action for CVE-2006-1547?",
+        "target_id": "kev-CVE-2006-1547",
+        "rank_in_top5": null,
+        "in_top5": false,
+        "target_similarity": 0.21129407634836683,
+        "top5_ids": [
+          "kev-CVE-2021-30116",
+          "kev-CVE-2025-20393",
+          "kev-CVE-2024-21887",
+          "kev-CVE-2023-46805",
+          "kev-CVE-2021-20028"
+        ],
+        "top5_similarities": [
+          0.43243837356567383,
+          0.3946723937988281,
+          0.38997507095336914,
+          0.38745713233947754,
+          0.3807032108306885
+        ],
+        "top5_distances": [
+          0.5675616264343262,
+          0.6053276062011719,
+          0.6100249290466309,
+          0.6125428676605225,
+          0.6192967891693115
+        ],
+        "cutoff_5th_similarity": 0.3807032108306885
+      }
+    ]
+  },
+  "c_required_action_absent": {
+    "doc_id_checked": "kev-CVE-2024-3400",
+    "load_kev_docs_source_references_requiredAction_in_text_bits": false,
+    "stored_text": "CVE-2024-3400: Palo Alto Networks PAN-OS Command Injection Vulnerability Palo Alto Networks PAN-OS. Palo Alto Networks PAN-OS GlobalProtect feature contains a command injection vulnerability that allows an unauthenticated attacker to execute commands with root privileges on the firewall. Known ransomware use: Known. Added 2024-04-12, remediation due 2024-04-19.",
+    "stored_text_contains_requiredAction_word": false,
+    "required_action_value_in_kev_json": null,
+    "stored_text_contains_required_action_value": false,
+    "required_action_absent_from_embedded_text": true
+  }
+}

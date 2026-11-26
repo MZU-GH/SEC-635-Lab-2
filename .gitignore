@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Data and model artifacts (large, re-downloadable or re-trainable).
+# NOTE on ordering: git cannot re-include a file whose parent *directory* is excluded,
+# so directories are ignored by their contents (`dir/*`) and the exceptions below use
+# explicit negations. An unanchored `models/` also used to swallow
+# lab1/outputs/models/, leaving a fresh clone unable to run a single Task 1 script.
+data/raw/*
+data/processed/*
+data/kev/*
+data/attack/*
+data/chroma/*
+models/*
+artifacts/*
+chroma/*
+*.pt
+*.pth
+*.onnx
+*.joblib
+*.pkl
+
+# Lab 1's shipped weights are the Task 1 attack target, not a build artifact: every
+# detector/*.py loads lab1/outputs/models/*.joblib (2.4 MB total).
+!lab1/outputs/models/
+!lab1/outputs/models/*.joblib
+
+# The Task 1C defended refit (180 KB) is the model the report's "as shipped" row
+# measures. Retraining costs ~11 min and is not bit-reproducible, so the committed
+# number is only reproducible if the artifact is.
+!models/task1c_defended.joblib
+
+# Results: keep small derived numbers and figures, ignore scratch
+results/raw/
+results/scratch/
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Lab 1 upstream data (large, re-downloadable from the CIC S3 bucket)
+lab1/data/*

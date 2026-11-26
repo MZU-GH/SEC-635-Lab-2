@@ -1,0 +1,685 @@
+{
+  "day": "Wednesday",
+  "eps_std": 0.15,
+  "n_flows": 300,
+  "definitions": {
+    "box": "detector.evasion.raw_radius(sb, 0.15, mutable): the attack box of every defended curve (defend.py, ablate_1c.py, smoothing_eval.py), ORIGINAL scaler",
+    "std_move": "mean over the 300 evaluation flows of scaler.transform(x+box)[j] - scaler.transform(x)[j], the pipeline's own scaler, all mutable features moved at once",
+    "sensitivity_i": "mean |logit(x_j + 0.15*sd_j) - logit(x)| (defended model's own units)",
+    "sensitivity_ii": "same with x_j + 0.15*sb_j (the real attack box); the undefended model's box is its own scale, so (i)==(ii) for it (asserted)",
+    "degenerate": "the five mutable features constant in Lab 1 training",
+    "real": "the 47 mutable features not constant in training"
+  },
+  "degenerate_mutable_features": [
+    "Fwd URG Flags",
+    "CWE Flag Count",
+    "Fwd Byts/b Avg",
+    "Fwd Pkts/b Avg",
+    "Fwd Blk Rate Avg"
+  ],
+  "per_feature": {
+    "Protocol": {
+      "sb": 4.485193451347465,
+      "sd": 4.520098291590816,
+      "sb_over_sd": 0.9922778581367825,
+      "std_move_defended": 0.1488416787205173,
+      "std_move_undefended": 0.1499999999999992,
+      "kind": "real"
+    },
+    "Flow Duration": {
+      "sb": 26980735.41975274,
+      "sd": 26134678.251139954,
+      "sb_over_sd": 1.0323729705214901,
+      "std_move_defended": 0.15485594557822438,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Tot Fwd Pkts": {
+      "sb": 46.01375541596418,
+      "sd": 45.74583555090402,
+      "sb_over_sd": 1.0058567050275435,
+      "std_move_defended": 0.1508785057541312,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "TotLen Fwd Pkts": {
+      "sb": 1111.9851110303598,
+      "sd": 1079.6715784958828,
+      "sb_over_sd": 1.0299290387725994,
+      "std_move_defended": 0.1544893558158903,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Pkt Len Max": {
+      "sb": 287.45036004582977,
+      "sd": 271.1861718423663,
+      "sb_over_sd": 1.0599742534546246,
+      "std_move_defended": 0.15899613801819418,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Pkt Len Min": {
+      "sb": 19.746230551553772,
+      "sd": 18.936053029875264,
+      "sb_over_sd": 1.042784920405551,
+      "std_move_defended": 0.15641773806083192,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Pkt Len Mean": {
+      "sb": 51.25698210090383,
+      "sd": 51.65587472742152,
+      "sb_over_sd": 0.992277884584811,
+      "std_move_defended": 0.14884168268772208,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Pkt Len Std": {
+      "sb": 85.19473131043183,
+      "sd": 85.8577351512576,
+      "sb_over_sd": 0.992277878753059,
+      "std_move_defended": 0.14884168181295884,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Flow IAT Mean": {
+      "sb": 10074450.937133752,
+      "sd": 10152852.480624067,
+      "sb_over_sd": 0.9922778801681658,
+      "std_move_defended": 0.14884168202522577,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Flow IAT Std": {
+      "sb": 3280870.888578599,
+      "sd": 3306403.3473945605,
+      "sb_over_sd": 0.9922778753426797,
+      "std_move_defended": 0.14884168130140296,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Flow IAT Max": {
+      "sb": 13989360.238116162,
+      "sd": 14098228.501403483,
+      "sb_over_sd": 0.9922778763816686,
+      "std_move_defended": 0.14884168145724946,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Flow IAT Min": {
+      "sb": 9982704.314748049,
+      "sd": 9768747.720205525,
+      "sb_over_sd": 1.0219021517056868,
+      "std_move_defended": 0.15328532275585374,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd IAT Tot": {
+      "sb": 26782132.981784523,
+      "sd": 25936541.64648704,
+      "sb_over_sd": 1.0326023163312528,
+      "std_move_defended": 0.15489034744968727,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd IAT Mean": {
+      "sb": 10152267.261706715,
+      "sd": 10231274.501070026,
+      "sb_over_sd": 0.9922778692571441,
+      "std_move_defended": 0.14884168038857132,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd IAT Std": {
+      "sb": 3529342.737770638,
+      "sd": 3556808.83288188,
+      "sb_over_sd": 0.9922778826746818,
+      "std_move_defended": 0.14884168240120282,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd IAT Max": {
+      "sb": 13706041.057424426,
+      "sd": 13812704.662182534,
+      "sb_over_sd": 0.9922778624920476,
+      "std_move_defended": 0.1488416793738076,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd IAT Min": {
+      "sb": 10056519.145795295,
+      "sd": 10134781.021839457,
+      "sb_over_sd": 0.9922778917595244,
+      "std_move_defended": 0.1488416837639284,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd PSH Flags": {
+      "sb": 0.15666038811028293,
+      "sd": 0.15787955680839216,
+      "sb_over_sd": 0.9922778558367196,
+      "std_move_defended": 0.1488416783755088,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd URG Flags": {
+      "sb": 1.0,
+      "sd": 0.125,
+      "sb_over_sd": 8.0,
+      "std_move_defended": 1.1999999999999933,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "degenerate"
+    },
+    "Fwd Header Len": {
+      "sb": 1134.6983147549274,
+      "sd": 1143.5287753653615,
+      "sb_over_sd": 0.9922778850863524,
+      "std_move_defended": 0.14884168276295387,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Pkts/s": {
+      "sb": 249388.36443132625,
+      "sd": 251329.16003287744,
+      "sb_over_sd": 0.9922778733621785,
+      "std_move_defended": 0.14884168100432743,
+      "std_move_undefended": 0.1499999999999992,
+      "kind": "real"
+    },
+    "Pkt Len Min": {
+      "sb": 19.230547111664908,
+      "sd": 19.380203439559747,
+      "sb_over_sd": 0.9922778763204646,
+      "std_move_defended": 0.14884168144806914,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Pkt Len Max": {
+      "sb": 507.7929644869086,
+      "sd": 511.74472037181346,
+      "sb_over_sd": 0.9922778765904342,
+      "std_move_defended": 0.14884168148856483,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Pkt Len Mean": {
+      "sb": 100.91098805231626,
+      "sd": 101.69629957810943,
+      "sb_over_sd": 0.9922778751139317,
+      "std_move_defended": 0.14884168126708883,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Pkt Len Std": {
+      "sb": 148.69902443370862,
+      "sd": 149.85623377668674,
+      "sb_over_sd": 0.9922778698368826,
+      "std_move_defended": 0.14884168047553265,
+      "std_move_undefended": 0.1499999999999992,
+      "kind": "real"
+    },
+    "Pkt Len Var": {
+      "sb": 72599.75749039295,
+      "sd": 73164.74490841891,
+      "sb_over_sd": 0.9922778734657905,
+      "std_move_defended": 0.14884168101986778,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "FIN Flag Cnt": {
+      "sb": 0.05587047950371118,
+      "sd": 0.056305276169301074,
+      "sb_over_sd": 0.9922778699409531,
+      "std_move_defended": 0.14884168049114319,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "SYN Flag Cnt": {
+      "sb": 0.15666038811028293,
+      "sd": 0.15787955497952208,
+      "sb_over_sd": 0.9922778673312243,
+      "std_move_defended": 0.14884168009968388,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "RST Flag Cnt": {
+      "sb": 0.2003344119805718,
+      "sd": 0.20189346161614594,
+      "sb_over_sd": 0.9922778597033602,
+      "std_move_defended": 0.1488416789555041,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "PSH Flag Cnt": {
+      "sb": 0.4994904550493274,
+      "sd": 0.5033775846803944,
+      "sb_over_sd": 0.9922779047987704,
+      "std_move_defended": 0.14884168571981587,
+      "std_move_undefended": 0.14999999999999908,
+      "kind": "real"
+    },
+    "ACK Flag Cnt": {
+      "sb": 0.4619768017443133,
+      "sd": 0.4655720076547177,
+      "sb_over_sd": 0.9922778735592054,
+      "std_move_defended": 0.1488416810338797,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "URG Flag Cnt": {
+      "sb": 0.3680927269495531,
+      "sd": 0.3709573022496296,
+      "sb_over_sd": 0.992277884051063,
+      "std_move_defended": 0.14884168260766,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "CWE Flag Count": {
+      "sb": 1.0,
+      "sd": 0.125,
+      "sb_over_sd": 8.0,
+      "std_move_defended": 1.1999999999999933,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "degenerate"
+    },
+    "ECE Flag Cnt": {
+      "sb": 0.20033128510201872,
+      "sd": 0.20189030505211317,
+      "sb_over_sd": 0.9922778860050163,
+      "std_move_defended": 0.1488416829007521,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Pkt Size Avg": {
+      "sb": 105.10268433491278,
+      "sd": 105.92061636412852,
+      "sb_over_sd": 0.9922778769866303,
+      "std_move_defended": 0.1488416815479943,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Seg Size Avg": {
+      "sb": 51.25698210090383,
+      "sd": 51.65587472742152,
+      "sb_over_sd": 0.992277884584811,
+      "std_move_defended": 0.14884168268772208,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Byts/b Avg": {
+      "sb": 1.0,
+      "sd": 0.125,
+      "sb_over_sd": 8.0,
+      "std_move_defended": 1.1999999999999933,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "degenerate"
+    },
+    "Fwd Pkts/b Avg": {
+      "sb": 1.0,
+      "sd": 0.125,
+      "sb_over_sd": 8.0,
+      "std_move_defended": 1.1999999999999933,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "degenerate"
+    },
+    "Fwd Blk Rate Avg": {
+      "sb": 1.0,
+      "sd": 0.125,
+      "sb_over_sd": 8.0,
+      "std_move_defended": 1.1999999999999933,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "degenerate"
+    },
+    "Subflow Fwd Pkts": {
+      "sb": 46.01375541596418,
+      "sd": 46.371844431647126,
+      "sb_over_sd": 0.9922778785258202,
+      "std_move_defended": 0.1488416817788736,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Subflow Fwd Byts": {
+      "sb": 1111.9851110303598,
+      "sd": 1120.6388173788296,
+      "sb_over_sd": 0.9922778809601556,
+      "std_move_defended": 0.1488416821440238,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Init Fwd Win Byts": {
+      "sb": 12489.777644016993,
+      "sd": 12586.975649979111,
+      "sb_over_sd": 0.9922778903634186,
+      "std_move_defended": 0.14884168355451316,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Act Data Pkts": {
+      "sb": 5.806026340756187,
+      "sd": 5.766045406497049,
+      "sb_over_sd": 1.0069338569921922,
+      "std_move_defended": 0.15104007854882917,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Fwd Seg Size Min": {
+      "sb": 9.986223116471885,
+      "sd": 10.063938138758418,
+      "sb_over_sd": 0.9922778716229151,
+      "std_move_defended": 0.14884168074343745,
+      "std_move_undefended": 0.14999999999999908,
+      "kind": "real"
+    },
+    "Active Mean": {
+      "sb": 599732.9702008006,
+      "sd": 604400.22019767,
+      "sb_over_sd": 0.9922778817066893,
+      "std_move_defended": 0.14884168225600353,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Active Std": {
+      "sb": 220480.9921423986,
+      "sd": 222196.82170406048,
+      "sb_over_sd": 0.9922778843166931,
+      "std_move_defended": 0.14884168264750489,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Active Max": {
+      "sb": 756212.7348506646,
+      "sd": 762097.7452362593,
+      "sb_over_sd": 0.9922778798095377,
+      "std_move_defended": 0.14884168197143105,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Active Min": {
+      "sb": 578280.5778524359,
+      "sd": 582780.879643687,
+      "sb_over_sd": 0.9922778835949411,
+      "std_move_defended": 0.14884168253924185,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Idle Mean": {
+      "sb": 10471090.57550794,
+      "sd": 10552578.879613,
+      "sb_over_sd": 0.9922778777553143,
+      "std_move_defended": 0.1488416816632972,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Idle Std": {
+      "sb": 1390933.8315333326,
+      "sd": 1401758.3783363733,
+      "sb_over_sd": 0.9922778797185522,
+      "std_move_defended": 0.1488416819577834,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Idle Max": {
+      "sb": 10709300.212734908,
+      "sd": 10792642.281722901,
+      "sb_over_sd": 0.9922778809106708,
+      "std_move_defended": 0.14884168213660068,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    },
+    "Idle Min": {
+      "sb": 10335471.239851715,
+      "sd": 10415904.111914977,
+      "sb_over_sd": 0.9922778789820795,
+      "std_move_defended": 0.14884168184731295,
+      "std_move_undefended": 0.14999999999999916,
+      "kind": "real"
+    }
+  },
+  "summary_degenerate": {
+    "sb": {
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "sd": {
+      "median": 0.125,
+      "min": 0.125,
+      "max": 0.125
+    },
+    "sb_over_sd": {
+      "median": 8.0,
+      "min": 8.0,
+      "max": 8.0
+    },
+    "std_move_defended": {
+      "median": 1.1999999999999933,
+      "min": 1.1999999999999933,
+      "max": 1.1999999999999933
+    }
+  },
+  "summary_real": {
+    "n": 47,
+    "sb": {
+      "median": 1111.9851110303598,
+      "min": 0.05587047950371118,
+      "max": 26980735.41975274
+    },
+    "sd": {
+      "median": 1079.6715784958828,
+      "min": 0.056305276169301074,
+      "max": 26134678.251139954
+    },
+    "sb_over_sd": {
+      "median": 0.9922778798095377,
+      "min": 0.9922778558367196,
+      "max": 1.0599742534546246
+    },
+    "std_move_defended": {
+      "median": 0.14884168197143105,
+      "min": 0.1488416783755088,
+      "max": 0.15899613801819418
+    }
+  },
+  "std_move_across_flows_spread_max": 2.220446049250313e-16,
+  "scale_cancels_on_degenerate": false,
+  "scale_cancels_on_real": false,
+  "undefended_std_move_equals_eps": true,
+  "sensitivity_defended_i_own_units": {
+    "degenerate_by_feature": {
+      "Fwd URG Flags": 0.4223889112472534,
+      "CWE Flag Count": 0.28105250000953674,
+      "Fwd Byts/b Avg": 0.5074326395988464,
+      "Fwd Pkts/b Avg": 0.3356224596500397,
+      "Fwd Blk Rate Avg": 0.85833740234375
+    },
+    "degenerate_min": 0.28105250000953674,
+    "degenerate_max": 0.85833740234375,
+    "real_median": 0.5906848311424255,
+    "real_top5_median": 2.1513495445251465,
+    "signed_mean_upper_by_feature": {
+      "Fwd URG Flags": -0.4223889112472534,
+      "CWE Flag Count": -0.28105250000953674,
+      "Fwd Byts/b Avg": 0.5074326395988464,
+      "Fwd Pkts/b Avg": 0.3356224596500397,
+      "Fwd Blk Rate Avg": 0.85833740234375
+    },
+    "frac_flows_logit_decreases_upper_by_feature": {
+      "Fwd URG Flags": 1.0,
+      "CWE Flag Count": 1.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "signed_mean_lower_by_feature": {
+      "Fwd URG Flags": 0.42237648367881775,
+      "CWE Flag Count": 0.2810356020927429,
+      "Fwd Byts/b Avg": -0.5074516534805298,
+      "Fwd Pkts/b Avg": -0.33561819791793823,
+      "Fwd Blk Rate Avg": -0.8583562970161438
+    },
+    "real_signed_mean_upper_median": 0.2813166081905365,
+    "n_degenerate_upper_decreases_logit": 2,
+    "n_degenerate_lower_decreases_logit": 3
+  },
+  "sensitivity_defended_ii_real_box": {
+    "degenerate_by_feature": {
+      "Fwd URG Flags": 3.379110813140869,
+      "CWE Flag Count": 2.2483959197998047,
+      "Fwd Byts/b Avg": 4.059515476226807,
+      "Fwd Pkts/b Avg": 2.6849582195281982,
+      "Fwd Blk Rate Avg": 6.866686820983887
+    },
+    "degenerate_min": 2.2483959197998047,
+    "degenerate_max": 6.866686820983887,
+    "real_median": 0.5861154794692993,
+    "real_top5_median": 2.1347575187683105,
+    "signed_mean_upper_by_feature": {
+      "Fwd URG Flags": -3.379110813140869,
+      "CWE Flag Count": -2.2483959197998047,
+      "Fwd Byts/b Avg": 4.059515476226807,
+      "Fwd Pkts/b Avg": 2.6849582195281982,
+      "Fwd Blk Rate Avg": 6.866686820983887
+    },
+    "frac_flows_logit_decreases_upper_by_feature": {
+      "Fwd URG Flags": 1.0,
+      "CWE Flag Count": 1.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "signed_mean_lower_by_feature": {
+      "Fwd URG Flags": 3.379124164581299,
+      "CWE Flag Count": 2.2484052181243896,
+      "Fwd Byts/b Avg": -4.059534072875977,
+      "Fwd Pkts/b Avg": -2.6849365234375,
+      "Fwd Blk Rate Avg": -6.866703510284424
+    },
+    "real_signed_mean_upper_median": 0.2897280156612396,
+    "n_degenerate_upper_decreases_logit": 2,
+    "n_degenerate_lower_decreases_logit": 3
+  },
+  "sensitivity_undefended": {
+    "degenerate_by_feature": {
+      "Fwd URG Flags": 0.0,
+      "CWE Flag Count": 0.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "degenerate_min": 0.0,
+    "degenerate_max": 0.0,
+    "real_median": 0.6731971502304077,
+    "real_top5_median": 1.6970508098602295,
+    "signed_mean_upper_by_feature": {
+      "Fwd URG Flags": 0.0,
+      "CWE Flag Count": 0.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "frac_flows_logit_decreases_upper_by_feature": {
+      "Fwd URG Flags": 0.0,
+      "CWE Flag Count": 0.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "signed_mean_lower_by_feature": {
+      "Fwd URG Flags": 0.0,
+      "CWE Flag Count": 0.0,
+      "Fwd Byts/b Avg": 0.0,
+      "Fwd Pkts/b Avg": 0.0,
+      "Fwd Blk Rate Avg": 0.0
+    },
+    "real_signed_mean_upper_median": 0.15164349973201752,
+    "n_degenerate_upper_decreases_logit": 0,
+    "n_degenerate_lower_decreases_logit": 0
+  },
+  "undefended_i_equals_ii": true,
+  "verdict": "DOES NOT CANCEL on the five degenerate features under the real attack box",
+  "pgd_scale_test": {
+    "n_flows": 300,
+    "curve": [
+      {
+        "eps_std": 0.15,
+        "five_real_box": {
+          "evasion_rate": 0.016666666666666666,
+          "n_evaded": 5
+        },
+        "five_own_units_box": {
+          "evasion_rate": 0.0,
+          "n_evaded": 0
+        },
+        "all_mutable_real_box": {
+          "evasion_rate": 0.65,
+          "n_evaded": 195
+        },
+        "all_mutable_five_own_units": {
+          "evasion_rate": 0.13666666666666666,
+          "n_evaded": 41
+        }
+      },
+      {
+        "eps_std": 0.25,
+        "five_real_box": {
+          "evasion_rate": 0.14333333333333334,
+          "n_evaded": 43
+        },
+        "five_own_units_box": {
+          "evasion_rate": 0.0,
+          "n_evaded": 0
+        },
+        "all_mutable_real_box": {
+          "evasion_rate": 1.0,
+          "n_evaded": 300
+        },
+        "all_mutable_five_own_units": {
+          "evasion_rate": 1.0,
+          "n_evaded": 300
+        }
+      }
+    ]
+  },
+  "l2_extent": {
+    "n_mutable": 52,
+    "eps_std": 0.15,
+    "l2_defended_units": 2.873092140122433,
+    "l2_undefended_units": 1.0816653826391909,
+    "l2_naive_eps_sqrt_n": 1.0816653826391966,
+    "certified_radius_median": 0.6699778171936303,
+    "certificate_below_defended_extent": true,
+    "certificate_below_naive_extent": true,
+    "definition": "sqrt(sum over the mutable features of (mean standardized move)^2), per_feature.std_move_defended; naive = eps*sqrt(n_mutable)"
+  },
+  "evasion_reference": [
+    {
+      "eps_std": 0.15,
+      "undefended_pgd_evasion": 0.10333333333333328,
+      "defended_real_box_evasion": 0.65,
+      "defended_five_own_units_evasion": 0.13666666666666666,
+      "excess_over_undefended_real_box": 0.5466666666666667,
+      "excess_over_undefended_five_own_units": 0.03333333333333338,
+      "share_of_excess_removed_by_own_units": 0.9390243902439025,
+      "scale_independent": false,
+      "mostly_scale_effect": true
+    },
+    {
+      "eps_std": 0.25,
+      "undefended_pgd_evasion": 0.65,
+      "defended_real_box_evasion": 1.0,
+      "defended_five_own_units_evasion": 1.0,
+      "excess_over_undefended_real_box": 0.35,
+      "excess_over_undefended_five_own_units": 0.35,
+      "share_of_excess_removed_by_own_units": 0.0,
+      "scale_independent": true,
+      "mostly_scale_effect": false
+    }
+  ],
+  "degenerate_training_value": {
+    "Fwd URG Flags": 0.0,
+    "CWE Flag Count": 0.0,
+    "Fwd Byts/b Avg": 0.0,
+    "Fwd Pkts/b Avg": 0.0,
+    "Fwd Blk Rate Avg": 0.0
+  }
+}

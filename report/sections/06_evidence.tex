@@ -1,0 +1,24 @@
+\section{Evidence quality}
+
+Every finding can be reproduced. Code, results and gates are at \url{https://github.com/MZU-GH/SEC-635-Lab-2}. The commands are in \texttt{report/REPRODUCING.md}, and a data snapshot release holds the large inputs. Four gate scripts check every number here against the stored results. The appendix has the payloads; the results JSON files hold every trial's full response.
+
+\lead{Limitation.} If the Llama Guard service goes down, the system fails closed and an outage would read as a perfect defense. The stored records show the guard was serving. In the after arm, 50 of 90 trials carry a real category verdict, 23 passed with no blocking layer, and 0 records are errored or unspecified.
+
+\begin{center}\fontsize{7}{8.4}\selectfont\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.2\textwidth}@{}}
+\toprule
+\textbf{Finding} & \textbf{Script} & \textbf{Results JSON} & \textbf{Figure/Table} \\
+\midrule
+\endhead
+F1--F4 & \texttt{run\_\allowbreak{}redteam.py}, \texttt{make\_\allowbreak{}task2\_\allowbreak{}evidence.py} & \texttt{task2\_\allowbreak{}redteam.json}, \texttt{task2\_\allowbreak{}summary.json} & \S3 table, Appendix A \\
+F5 & \texttt{evasion.py} & \texttt{task1b\_\allowbreak{}evasion\_\allowbreak{}wednesday.json} & 1B table, Fig.~1 \\
+F6 & \texttt{membership.py}, \texttt{membership\_\allowbreak{}after.py} & \texttt{task1a\_\allowbreak{}membership.json}, \texttt{task1c\_\allowbreak{}membership\_\allowbreak{}after.json} & 1A table \\
+F7 & \texttt{probe\_\allowbreak{}retrieval.py} & \texttt{task2\_\allowbreak{}retrieval\_\allowbreak{}probe.json} & \S3 text \\
+F8 & \texttt{defend.py}, \texttt{ablate\_\allowbreak{}1c.py}, \texttt{ablate\_\allowbreak{}1c\_\allowbreak{}rounds.py}, \texttt{scale\_\allowbreak{}effect.py}, \texttt{smoothing\_\allowbreak{}eval.py}, \texttt{report\_\allowbreak{}extras.py} & \texttt{task1c\_\allowbreak{}\{defense, ablation, ablation\_\allowbreak{}rounds, scale\_\allowbreak{}effect, smoothing\_\allowbreak{}detection\}.json}, \texttt{report\_\allowbreak{}extras.json} & 1C tables, Fig.~1 right, Fig.~2 \\
+F5, F6, F8 (extras) & \texttt{scripts/\allowbreak{}detector\_\allowbreak{}extras.py} & \texttt{task1\_\allowbreak{}extras.json} & 1B Thursday columns, 1B benign text, 1C one-round measurements \\
+Bounds, ops & \texttt{zero\_\allowbreak{}rate\_\allowbreak{}bounds.py}, \texttt{raw\_\allowbreak{}shift\_\allowbreak{}eps.py}, \texttt{noise\_\allowbreak{}check.py}, \texttt{attacker\_\allowbreak{}budget.py}, \texttt{recommendation\_\allowbreak{}controls.py} & \texttt{task2\_\allowbreak{}zero\_\allowbreak{}rate\_\allowbreak{}bounds.json}, \texttt{task1b\_\allowbreak{}raw\_\allowbreak{}shift\_\allowbreak{}eps010.json}, \texttt{noise\_\allowbreak{}check.json}, \texttt{task1\_\allowbreak{}attacker\_\allowbreak{}budget.json}, \texttt{task5\_\allowbreak{}recommendation\_\allowbreak{}controls.json} & \S2 realism, \S3, \S5 \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\noindent{\footnotesize\emph{Generative AI was used as a coding and writing assistant; numbers are produced by the repository's scripts and checked by its gates.}\par}

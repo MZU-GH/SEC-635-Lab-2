@@ -1,0 +1,86 @@
+{
+  "wednesday": {
+    "dataset_filename": "Wednesday-14-02-2018_TrafficForML_CICFlowMeter.csv",
+    "raw_row_count": 1048575,
+    "header_rows_removed": 0,
+    "1970_rows_dropped": 5,
+    "invalid_ts_dropped": 0,
+    "other_year_dropped": 0,
+    "nan_inf_strategy": "drop",
+    "rows_with_nan": 2277,
+    "rows_with_inf": 3824,
+    "rows_with_nan_or_inf_handled": 3824,
+    "nan_inf_breakdown_by_label": {
+      "Benign": 3818,
+      "FTP-BruteForce": 6
+    },
+    "columns_with_nan": {
+      "Flow Byts/s": 2277
+    },
+    "columns_with_inf": {
+      "Flow Byts/s": 1547,
+      "Flow Pkts/s": 3824
+    },
+    "final_row_count": 1044746,
+    "retention_rate_pct": 99.6348,
+    "min_timestamp": "2018-02-14 01:00:00",
+    "max_timestamp": "2018-02-14 12:59:59",
+    "time_span_seconds": 43199,
+    "time_span_formatted": "0 days 11:59:59",
+    "is_chronologically_sorted": true,
+    "class_distribution_counts": {
+      "Benign": 663803,
+      "FTP-BruteForce": 193354,
+      "SSH-Bruteforce": 187589
+    },
+    "class_distribution_pct": {
+      "Benign": 63.5373,
+      "FTP-BruteForce": 18.5073,
+      "SSH-Bruteforce": 17.9555
+    },
+    "feature_count": 78,
+    "parquet_filename": "cleaned_wednesday_14-02-2018.parquet",
+    "parquet_size_mb": 98.2
+  },
+  "thursday": {
+    "dataset_filename": "Thursday-01-03-2018_TrafficForML_CICFlowMeter.csv",
+    "raw_row_count": 331125,
+    "header_rows_removed": 25,
+    "1970_rows_dropped": 0,
+    "invalid_ts_dropped": 0,
+    "other_year_dropped": 0,
+    "nan_inf_strategy": "drop",
+    "rows_with_nan": 1834,
+    "rows_with_inf": 2919,
+    "rows_with_nan_or_inf_handled": 2919,
+    "nan_inf_breakdown_by_label": {
+      "Benign": 2259,
+      "Infilteration": 660
+    },
+    "columns_with_nan": {
+      "Flow Byts/s": 1834
+    },
+    "columns_with_inf": {
+      "Flow Byts/s": 1085,
+      "Flow Pkts/s": 2919
+    },
+    "final_row_count": 328181,
+    "retention_rate_pct": 99.1109,
+    "min_timestamp": "2018-03-01 01:00:00",
+    "max_timestamp": "2018-03-01 12:59:59",
+    "time_span_seconds": 43199,
+    "time_span_formatted": "0 days 11:59:59",
+    "is_chronologically_sorted": true,
+    "class_distribution_counts": {
+      "Benign": 235778,
+      "Infilteration": 92403
+    },
+    "class_distribution_pct": {
+      "Benign": 71.8439,
+      "Infilteration": 28.1561
+    },
+    "feature_count": 78,
+    "parquet_filename": "cleaned_thursday_01-03-2018.parquet",
+    "parquet_size_mb": 35.34
+  }
+}
